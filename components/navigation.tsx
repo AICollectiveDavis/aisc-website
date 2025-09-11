@@ -1,6 +1,8 @@
 "use client"
 
 import Link from "next/link"
+import Logo from "../public/logo.png"
+import Image from "next/image"
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Menu, X } from "lucide-react"
@@ -21,11 +23,19 @@ export function Navigation() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link href="/" className="flex items-center space-x-2">
-            <div className="w-8 h-8 bg-gradient-to-br from-primary to-secondary rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-sm">AI</span>
+          <Link href="/" className="flex items-center group">
+            <div className="relative h-10 w-8 mr-5 transform transition-all duration-300 group-hover:scale-105">
+              {/* <span className="text-white font-bold text-sm">AI</span> */}
+                <Image 
+                src={Logo} 
+                alt="AI Student Collective Logo" 
+                fill
+                priority
+                style={{ objectFit: 'contain', objectPosition: 'left' }}
+                className="brightness-110 drop-shadow-[0_0_15px_rgba(14,165,233,0.5)] transition-all duration-300 group-hover:drop-shadow-[0_0_18px_rgba(14,165,233,0.7)]" 
+                />
             </div>
-            <span className="font-semibold text-foreground hidden sm:block">AI Student Collective</span>
+            {/* <span className="font-semibold text-foreground hidden sm:block">AI Student Collective</span> */}
           </Link>
 
           <div className="hidden md:flex items-center space-x-4">
