@@ -6,6 +6,9 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible"
 import { ChevronDown } from "lucide-react"
 import { useState } from "react"
+import Link from "next/link"
+import { WhereWeveGone } from "@/components/companies"
+import { AboutSection } from "@/components/about"
 
 
 export default function HomePage() {
@@ -59,26 +62,28 @@ export default function HomePage() {
           <div className="container relative z-40 mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-8 md:gap-12">
               {/* Left Column - Text Content */}
-              <div className="md:w-1/2 md:pr-6 relative z-50">
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-balance">
-                  <span>AI Student </span>
-                  <span className="gradient-text">Collective</span>
+              <div className="ml-12 md:w-1/2 md:pr-12 relative z-50">
+                <h1 className="gradient-text text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-balance">
+                  <span>AI Student <br /> Collective</span>
                 </h1>
                 <div className="text-lg md:text-xl text-muted-foreground mb-6 h-12">
                   <TypingEffect text="Creating a future of AI literacy for all." />
                 </div>
                 <p className="text-muted-foreground mb-8 max-w-lg text-pretty">
-                  Join a community of students passionate about artificial intelligence. Learn through workshops,
-                  collaborate on projects, and connect with industry experts.
+                  A global network of student organizations dedicated to making AI literacy accessible for everyone. Through pre-professional programs, hands-on events, and industry connections, we’re building a more informed, diverse, and equitable future in AI.
                 </p>
                 <div className="flex flex-wrap gap-4">
-                  <Button className="gradient-btn">Learn More</Button>
-                  <Button className="shine-btn">Upcoming Events</Button>
+                  <Button asChild>
+                    <Link className="gradient-btn" href="/about">Learn More</Link>
+                  </Button>
+                  <Button asChild>
+                    <Link className="shine-btn" href="/calendar">Upcoming Events</Link>
+                  </Button>
                 </div>
               </div>
 
               {/* Right Column - Animated Blobs */}
-              <div className="md:w-1/2 h-[400px] md:h-[500px] relative z-40">
+              <div className="blur md:w-1/2 h-[400px] md:h-[500px] relative z-40">
                 <div className="absolute inset-0 overflow-hidden">
                   {/* Primary blob - blue */}
                   <div
@@ -165,62 +170,21 @@ export default function HomePage() {
         </section>
 
         {/* About Section */}
-        <section className="py-16 bg-card relative z-30">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex flex-col md:flex-row items-center gap-8">
-              <div className="md:w-1/2">
-                <h2 className="text-3xl font-bold mb-4 text-balance">About Our Collective</h2>
-                <p className="text-muted-foreground mb-4 text-pretty">
-                  The AI Student Collective at UC Davis was founded by students passionate about artificial intelligence
-                  and its potential to solve complex problems.
-                </p>
-                <p className="text-muted-foreground mb-6 text-pretty">
-                  Our mission is to create an inclusive environment where students can learn, collaborate, and innovate
-                  in the field of AI, regardless of their background or experience level.
-                </p>
-                <Button variant="outline" className="shine-btn bg-transparent">
-                  Learn More About Us
-                </Button>
-              </div>
-              <div className="md:w-1/2">
-                <Card className="glass-card">
-                  <CardContent className="p-6">
-                    <h3 className="text-xl font-semibold mb-4">By the Numbers</h3>
-                    <div className="grid grid-cols-2 gap-4">
-                      <div className="text-center">
-                        <div className="text-4xl font-bold text-primary mb-2">200+</div>
-                        <div className="text-muted-foreground">Active Members</div>
-                      </div>
-                      <div className="text-center">
-                        <div className="text-4xl font-bold text-secondary mb-2">10+</div>
-                        <div className="text-muted-foreground">Workshops Per Year</div>
-                      </div>
-                      <div className="text-center">
-                        <div className="text-4xl font-bold text-primary mb-2">20+</div>
-                        <div className="text-muted-foreground">Industry Events</div>
-                      </div>
-                      <div className="text-center">
-                        <div className="text-4xl font-bold text-secondary mb-2">100+</div>
-                        <div className="text-muted-foreground">Projects Completed</div>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-              </div>
-            </div>
-          </div>
-        </section>
+        <AboutSection />
+
+        {/* Where We've Gone Section */}
+        <WhereWeveGone/>
 
         {/* Testimonials */}
-        <section className="py-16 relative z-30">
+        <section className="py-12 bg-background relative z-30">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-3xl font-bold mb-12 text-center text-balance">What Our Members Say</h2>
+            <h2 className="text-3xl font-bold mb-8 text-center text-balance">What Our Members Say</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <Card className="glass-card">
                 <CardContent className="p-6">
                   <p className="text-muted-foreground mb-4 text-pretty">
-                    "Joining the AI Student Collective has been one of the best decisions of my academic career. The
-                    workshops and mentorship helped me land an internship at a leading AI company."
+                    &quot;Joining the AI Student Collective has been one of the best decisions of my academic career. The
+                    workshops and mentorship helped me land an internship at a leading AI company.&quot;
                   </p>
                   <div className="flex items-center">
                     <div className="w-10 h-10 bg-primary rounded-full mr-3" />
@@ -253,7 +217,7 @@ export default function HomePage() {
         </section>
 
         {/* CTA Section */}
-        <section className="py-16 bg-card relative z-30">
+        <section className="py-16 relative z-30">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 className="text-3xl font-bold mb-4 text-balance">Ready to Join Us?</h2>
             <p className="text-muted-foreground mb-8 max-w-lg mx-auto text-pretty">
