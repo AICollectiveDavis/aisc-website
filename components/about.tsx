@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
+import Link from "next/link"
 
 export function AboutSection() {
   return (
@@ -9,19 +10,17 @@ export function AboutSection() {
           <Card className="glass-card">
             <CardContent className="p-6 min-h-full flex flex-col">
               <h2 className="text-3xl font-bold mb-4 text-balance">About Our Collective</h2>
-              <p className="text-muted-foreground mb-4 text-pretty">
-                The AI Student Collective at UC Davis was founded by students passionate about artificial intelligence
-                and its potential to solve complex problems.
+              <p className="text-muted-foreground text-pretty">
+                Since our launch in January 2023, we&#39;e grown to serve over 3,000 students, offering exciting opportunities for involvement in technical, creative, and business roles. We achieve this through: 
               </p>
-              <p className="text-muted-foreground text-pretty">🌟 We offer:</p>
-              <ul className="text-muted-foreground my-6 ml-6 list-disc [&>li]:mt-2 flex-grow">
+              <ul className="text-muted-foreground mb-6 ml-6 list-disc [&>li]:mt-2 flex-grow">
                 <li>High-impact events like symposiums and product competitions</li>
                 <li>Local opportunities: resume workshops, code-alongs, corporate mixers, tech conferences</li>
                 <li>Access to industry mentors</li>
               </ul>
               <div className="mt-auto">
-                <Button variant="outline" className="shine-btn bg-transparent">
-                  Learn More About Us
+                <Button asChild>
+                  <Link className="shine-btn bg-transparent" href='/about'>Learn More About Us</Link>
                 </Button>
               </div>
             </CardContent>

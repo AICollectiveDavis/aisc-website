@@ -125,6 +125,54 @@
   }
 }
 
+@layer utilities {
+  /* Masked white logo with animated gradient glow halo */
+  .logo-glow {
+    position: relative;
+    background: #ffffff;                 /* white fill for the logo */
+    /* supply the mask via CSS var: --logo-src: url(/path.svg) */
+    -webkit-mask-image: var(--logo-src);
+            mask-image: var(--logo-src);
+    -webkit-mask-repeat: no-repeat;
+            mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+            mask-position: center;
+    -webkit-mask-size: contain;
+            mask-size: contain;
+    isolation: isolate;                  /* keep glow blending scoped */
+  }
+
+  /* Outer glow: inherits the same mask and paints a blurred gradient behind */
+  .logo-glow::before {
+    content: "";
+    position: absolute;
+    inset: -8px;                         /* expand beyond edges for a halo */
+    background: linear-gradient(90deg, #60d7ff, #ffffff, #ffb3e6);
+    background-size: 200% auto;
+    animation: gradientShift 8s linear infinite;
+    opacity: 0.9;
+    filter: blur(10px) saturate(120%);
+    z-index: -1;
+
+    -webkit-mask-image: var(--logo-src);
+            mask-image: var(--logo-src);
+    -webkit-mask-repeat: no-repeat;
+            mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+            mask-position: center;
+    -webkit-mask-size: contain;
+            mask-size: contain;
+  }
+
+  /* Optional stronger glow */
+  .logo-glow-strong::before { inset: -12px; filter: blur(14px) saturate(140%); }
+
+  /* Respect reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .logo-glow::before { animation: none; }
+  }
+}
+
 /* Added custom animations and effects for AI Student Collective */
 @layer utilities {
   /* Improved gradient text with high contrast colors and better fallback */

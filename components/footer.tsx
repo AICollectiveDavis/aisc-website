@@ -12,10 +12,8 @@ export default function Footer() {
           <div className="md:col-span-5">
             <h3 className="text-white text-lg font-semibold mb-4">AI Student Collective</h3>
             <p className="text-white/70 max-w-lg text-base">
-              A student-led organization dedicated to fostering knowledge, collaboration, and innovation in the field of
-              artificial intelligence among students at UC Davis.
+              A global network of student organizations dedicated to making AI literacy accessible for everyone. Through pre-professional programs, hands-on events, and industry connections, we&#39;re building a more informed, diverse, and equitable future in AI.
             </p>
-
             {/* Social Links */}
             <div className="flex space-x-4 mt-6">
               {/* <a href="https://twitter.com/aistudentclub" target="_blank" rel="noopener noreferrer" 
@@ -231,7 +229,7 @@ export default function Footer() {
                     d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
                   />
                 </svg>
-                <span className="text-white/70 text-base">General Meetings: TBA</span>
+                <span className="text-white/70 text-base">All Hands Meetings: TBA</span>
               </div>
             </div>
           </div>

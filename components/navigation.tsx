@@ -121,7 +121,7 @@ export function Navigation() {
                         >
                           <div className="text-sm font-medium leading-none">User Experience Research</div>
                           <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-                            Perform data analysis to improve internal functions.
+                            Collect and analyze data to improve internal functions.
                           </p>
                         </Link>
                       </NavigationMenuLink>
@@ -188,22 +188,10 @@ export function Navigation() {
                           </Link>
                           </NavigationMenuLink>
                         </div>
-                        
-                        <NavigationMenuLink asChild>
-                          <Link
-                          href="/teams/executive"
-                          className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
-                          >
-                          <div className="text-sm font-medium leading-none">Executive</div>
-                          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-                            Our quasi C-Suite.
-                          </p>
-                          </Link>
-                      </NavigationMenuLink>
                         {/* INNOVATION */}
                       <NavigationMenuLink asChild>
                           <Link
-                          href="/teams/innovation"
+                          href="/teams/#innovation"
                           className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
                           >
                           <div className="text-sm font-medium leading-none">Innovation</div>
@@ -215,7 +203,7 @@ export function Navigation() {
 
                         <NavigationMenuLink asChild>
                           <Link
-                          href="/teams/memberdev"
+                          href="/teams/#memberdev"
                           className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
                           >
                           <div className="text-sm font-medium leading-none">Member Development</div>
@@ -227,7 +215,7 @@ export function Navigation() {
 
                         <NavigationMenuLink asChild>
                           <Link
-                          href="/teams/operations"
+                          href="/teams/#operations"
                           className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
                           >
                           <div className="text-sm font-medium leading-none">Operations</div>
