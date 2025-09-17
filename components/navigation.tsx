@@ -42,7 +42,7 @@ export function Navigation() {
             <NavigationMenu>
               <NavigationMenuList>
                 <NavigationMenuItem>
-                  <NavigationMenuTrigger className="bg-transparent hover:bg-accent/50 text-muted-foreground hover:text-foreground">
+                  <NavigationMenuTrigger className="bg-transparent text-muted-foreground hover:bg-white/20 hover:text-white focus:bg-white/20 focus:text-white">
                     Initiatives
                   </NavigationMenuTrigger>
                   <NavigationMenuContent>
@@ -50,7 +50,7 @@ export function Navigation() {
                       <div className="row-span-3">
                         <NavigationMenuLink asChild>
                           <Link
-                            className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
+                            className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md hover:bg-white/20 hover:text-white focus:bg-white/20 focus:text-white"
                             href="/initiatives" 
                           >
                             <div className="mb-2 mt-4 text-lg font-medium">Our Initiatives</div>
@@ -65,7 +65,7 @@ export function Navigation() {
                       <NavigationMenuLink asChild>
                           <Link
                           href="/initiatives/bp"
-                          className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                          className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-white/20 hover:text-white focus:bg-white/20 focus:text-white"
                           >
                           <div className="text-sm font-medium leading-none">Beginner Projects</div>
                           <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
@@ -78,7 +78,7 @@ export function Navigation() {
                       <NavigationMenuLink asChild>
                         <Link
                           href="/initiatives/swe"
-                          className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                          className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-white/20 hover:text-white focus:bg-white/20 focus:text-white"
                         >
                           <div className="text-sm font-medium leading-none">Software Engineering</div>
                           <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
@@ -91,7 +91,7 @@ export function Navigation() {
                       <NavigationMenuLink asChild>
                         <Link
                           href="/initiatives/research"
-                          className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                          className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-white/20 hover:text-white focus:bg-white/20 focus:text-white"
                         >
                           <div className="text-sm font-medium leading-none">R&D</div>
                           <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
@@ -104,7 +104,7 @@ export function Navigation() {
                       <NavigationMenuLink asChild>
                         <Link
                           href="/initiatives/forge"
-                          className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                          className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-white/20 hover:text-white focus:bg-white/20 focus:text-white"
                         >
                           <div className="text-sm font-medium leading-none">Forge</div>
                           <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
@@ -117,7 +117,7 @@ export function Navigation() {
                       <NavigationMenuLink asChild>
                         <Link
                           href="/initiatives/uxr"
-                          className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                          className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-white/20 hover:text-white focus:bg-white/20 focus:text-white"
                         >
                           <div className="text-sm font-medium leading-none">User Experience Research</div>
                           <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
@@ -125,52 +125,13 @@ export function Navigation() {
                           </p>
                         </Link>
                       </NavigationMenuLink>
-                        
-                        {/* CREATIVE BLOCK
-                      <NavigationMenuLink asChild>
-                        <Link
-                          href="/initiatives/rsearch"
-                          className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
-                        >
-                          <div className="text-sm font-medium leading-none">Creative</div>
-                          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-                            Design and branding to clearly represent our community and projects.
-                          </p>
-                        </Link>
-                      </NavigationMenuLink>
-
-                        // {/* CONTENT STRATEGY */}
-                        {/* <NavigationMenuLink asChild>
-                        <Link
-                          href="/initiatives/rsearch"
-                          className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
-                        >
-                          <div className="text-sm font-medium leading-none">Content Strategy</div>
-                          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-                            Knowledge-sharing, documentation, and digital content for outreach and growth.
-                          </p>
-                        </Link>
-                      </NavigationMenuLink> */}
-
-                                              {/* External Affairs */}
-                        {/* <NavigationMenuLink asChild>
-                        <Link
-                          href="/initiatives/rsearch"
-                          className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
-                        >
-                          <div className="text-sm font-medium leading-none">Content Strategy</div>
-                          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-                            Knowledge-sharing, documentation, and digital content for outreach and growth.
-                          </p>
-                        </Link>
-                      </NavigationMenuLink> */}
 
                     </div>
                   </NavigationMenuContent>
                 </NavigationMenuItem>
 
                 <NavigationMenuItem>
-                  <NavigationMenuTrigger className="bg-transparent hover:bg-accent/50 text-muted-foreground hover:text-foreground">
+                  <NavigationMenuTrigger className="bg-transparent text-muted-foreground hover:bg-white/20 hover:text-white focus:bg-white/20 focus:text-white">
                     Teams
                   </NavigationMenuTrigger>
                   <NavigationMenuContent>
@@ -178,7 +139,7 @@ export function Navigation() {
                       <div className="row-span-4">
                         <NavigationMenuLink asChild>
                           <Link
-                            className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
+                            className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md hover:bg-white/20 hover:text-white focus:bg-white/20 focus:text-white"
                             href="/initiatives" 
                           >
                             <div className="mb-2 mt-4 text-lg font-medium">Our Teams</div>
@@ -192,7 +153,7 @@ export function Navigation() {
                       <NavigationMenuLink asChild>
                           <Link
                           href="/teams/#innovation"
-                          className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                          className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-white/20 hover:text-white focus:bg-white/20 focus:text-white"
                           >
                           <div className="text-sm font-medium leading-none">Innovation</div>
                           <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
@@ -204,7 +165,7 @@ export function Navigation() {
                         <NavigationMenuLink asChild>
                           <Link
                           href="/teams/#memberdev"
-                          className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                          className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-white/20 hover:text-white focus:bg-white/20 focus:text-white"
                           >
                           <div className="text-sm font-medium leading-none">Member Development</div>
                           <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
@@ -233,7 +194,7 @@ export function Navigation() {
                   <NavigationMenuLink asChild>
                     <Link
                       href="/about"
-                      className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-transparent px-4 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-accent/50 hover:text-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50"
+                      className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-transparent px-4 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-white/20 hover:text-white focus:bg-white/20 focus:text-white focus:outline-none disabled:pointer-events-none disabled:opacity-50"
                     >
                       About Us
                     </Link>
@@ -244,7 +205,7 @@ export function Navigation() {
                   <NavigationMenuLink asChild>
                     <Link
                       href="/contact"
-                      className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-transparent px-4 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-accent/50 hover:text-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50"
+                      className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-transparent px-4 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-white/20 hover:text-white focus:bg-white/20 focus:text-white focus:outline-none disabled:pointer-events-none disabled:opacity-50"
                     >
                       Contact
                     </Link>
@@ -266,16 +227,16 @@ export function Navigation() {
         {isOpen && (
           <div className="md:hidden py-4 border-t border-border/50">
             <div className="flex flex-col space-y-4">
-              <Link href="/initiatives" className="text-muted-foreground hover:text-foreground transition-colors">
+              <Link href="/initiatives" className="text-muted-foreground hover:bg-white/20 hover:text-white focus:bg-white/20 focus:text-white transition-colors rounded-md px-2 py-1">
                 Initiatives
               </Link>
-              <Link href="/team" className="text-muted-foreground hover:text-foreground transition-colors">
+              <Link href="/team" className="text-muted-foreground hover:bg-white/20 hover:text-white focus:bg-white/20 focus:text-white transition-colors rounded-md px-2 py-1">
                 Team
               </Link>
-              <Link href="/about" className="text-muted-foreground hover:text-foreground transition-colors">
+              <Link href="/about" className="text-muted-foreground hover:bg-white/20 hover:text-white focus:bg-white/20 focus:text-white transition-colors rounded-md px-2 py-1">
                 About Us
               </Link>
-              <Link href="/contact" className="text-muted-foreground hover:text-foreground transition-colors">
+              <Link href="/contact" className="text-muted-foreground hover:bg-white/20 hover:text-white focus:bg-white/20 focus:text-white transition-colors rounded-md px-2 py-1">
                 Contact
               </Link>
               <Button className="gradient-btn w-fit">Join Us</Button>

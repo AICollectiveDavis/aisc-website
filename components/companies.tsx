@@ -46,7 +46,7 @@ export function WhereWeveGone() {
     <section className="pb-8 bg-background relative z-20">
       <div className="container mx-auto px-4">
         <div className="text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground py-8">Where We've Gone</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground py-8">Where We&#39;ve Gone</h2>
         </div>
 
         <div
