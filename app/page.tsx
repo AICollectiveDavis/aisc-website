@@ -2,10 +2,10 @@
 import { Navigation } from "@/components/navigation"
 import { TypingEffect } from "@/components/typing-effect"
 import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
-import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible"
-import { ChevronDown } from "lucide-react"
-import { useState } from "react"
+// import { Card, CardContent } from "@/components/ui/card"
+// import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible"
+// import { ChevronDown } from "lucide-react"
+// import { useState } from "react"
 import Link from "next/link"
 import { AboutSection } from "@/components/about"
 import { WhereWeveGone } from "@/components/companies"
@@ -13,18 +13,18 @@ import CTASection from "@/components/cta"
 import Testimonials from "@/components/testimonials"
 
 export default function HomePage() {
-  const [openSections, setOpenSections] = useState<{ [key: string]: boolean }>({
-    innovation: true,
-    development: false,
-    operations: false,
-  })
+  // const [openSections, setOpenSections] = useState<{ [key: string]: boolean }>({
+  //   innovation: true,
+  //   development: false,
+  //   operations: false,
+  // })
 
-  const toggleSection = (section: string) => {
-    setOpenSections((prev) => ({
-      ...prev,
-      [section]: !prev[section],
-    }))
-  }
+  // const toggleSection = (section: string) => {
+  //   setOpenSections((prev) => ({
+  //     ...prev,
+  //     [section]: !prev[section],
+  //   }))
+  // }
 
   return (
     <div className="min-h-screen bg-background text-foreground">
