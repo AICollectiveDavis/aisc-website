@@ -1,103 +1,187 @@
-import Image from "next/image";
+"use client"
+import { Navigation } from "@/components/navigation"
+import { TypingEffect } from "@/components/typing-effect"
+import { Button } from "@/components/ui/button"
+import { Card, CardContent } from "@/components/ui/card"
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible"
+import { ChevronDown } from "lucide-react"
+import { useState } from "react"
+import Link from "next/link"
+import { AboutSection } from "@/components/about"
+import { WhereWeveGone } from "@/components/companies"
+import CTASection from "@/components/cta"
+import Testimonials from "@/components/testimonials"
 
-export default function Home() {
+export default function HomePage() {
+  const [openSections, setOpenSections] = useState<{ [key: string]: boolean }>({
+    innovation: true,
+    development: false,
+    operations: false,
+  })
+
+  const toggleSection = (section: string) => {
+    setOpenSections((prev) => ({
+      ...prev,
+      [section]: !prev[section],
+    }))
+  }
+
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <div className="min-h-screen bg-background text-foreground">
+      <Navigation />
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+      <main className="relative">
+        {/* Background patterns and effects */}
+        <div className="absolute inset-0 dot-pattern opacity-30 pointer-events-none z-0" />
+
+        {/* Animated background orbs - moved to lower z-index */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none z-5">
+          <div
+            className="absolute top-20 left-20 w-64 h-64 rounded-full filter blur-2xl animate-float blur-seamless"
+            style={{
+              backgroundColor: "rgba(14, 165, 233, 0.4)",
+              boxShadow: "0 0 40px rgba(14, 165, 233, 0.2)",
+              filter: "blur(60px)",
+            }}
+          />
+          <div
+            className="absolute top-40 right-20 w-96 h-96 rounded-full filter blur-2xl animate-float animation-delay-2000 blur-seamless"
+            style={{
+              backgroundColor: "rgba(249, 168, 212, 0.4)",
+              boxShadow: "0 0 40px rgba(249, 168, 212, 0.2)",
+              filter: "blur(80px)",
+            }}
+          />
         </div>
+
+        <div className="absolute inset-0 mesh-pattern opacity-30 pointer-events-none z-10" />
+
+        {/* Hero Section */}
+        <section className="relative pt-24 pb-16 md:pt-32 md:pb-24 overflow-hidden z-30">
+          <div className="absolute inset-0 bg-background/80 backdrop-blur-sm" />
+
+          <div className="container relative z-40 mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-8 md:gap-12">
+              {/* Left Column - Text Content */}
+              <div className="ml-12 md:w-1/2 md:pr-12 relative z-50">
+                <h1 className="gradient-text text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-balance">
+                  <span>AI Student <br /> Collective</span>
+                </h1>
+                <div className="text-lg md:text-xl text-muted-foreground mb-6 h-12">
+                  <TypingEffect text="Creating a future of AI literacy for all." />
+                </div>
+                <p className="text-muted-foreground mb-8 max-w-lg text-pretty">
+                  A global network of student organizations dedicated to making AI literacy accessible for everyone. Through pre-professional programs, hands-on events, and industry connections, we’re building a more informed, diverse, and equitable future in AI.
+                </p>
+                <div className="flex flex-wrap gap-4">
+                  <Button asChild>
+                    <Link className="gradient-btn" href="/about">Learn More</Link>
+                  </Button>
+                  <Button asChild>
+                    <Link className="shine-btn" href="/calendar">Upcoming Events</Link>
+                  </Button>
+                </div>
+              </div>
+
+              {/* Right Column - Animated Blobs */}
+              <div className="blur md:w-1/2 h-[400px] md:h-[500px] relative z-40">
+                <div className="absolute inset-0 overflow-hidden">
+                  {/* Primary blob - blue */}
+                  <div
+                    className="absolute w-[60%] h-[60%] top-[20%] left-[25%] animate-morph blur-edge-fade"
+                    style={{
+                      background: "linear-gradient(135deg, rgba(14, 165, 233, 0.6), rgba(14, 165, 233, 0.2))",
+                      borderRadius: "60% 40% 50% 50% / 40% 50% 50% 60%",
+                      filter: "blur(50px)",
+                      animationDuration: "20s",
+                      transform: "rotate(-5deg)",
+                      boxShadow: "0 0 80px rgba(14, 165, 233, 0.3)",
+                    }}
+                  />
+
+                  {/* Secondary blob - pink */}
+                  <div
+                    className="absolute w-[50%] h-[50%] top-[30%] left-[40%] animate-morph animation-delay-1000 blur-edge-fade"
+                    style={{
+                      background: "linear-gradient(135deg, rgba(249, 168, 212, 0.5), rgba(249, 168, 212, 0.15))",
+                      borderRadius: "50% 60% 40% 50% / 60% 40% 60% 40%",
+                      filter: "blur(40px)",
+                      animationDuration: "25s",
+                      transform: "rotate(10deg)",
+                      boxShadow: "0 0 60px rgba(249, 168, 212, 0.25)",
+                    }}
+                  />
+
+                  {/* Additional accent blobs */}
+                  <div
+                    className="absolute w-[45%] h-[45%] top-[15%] left-[10%] animate-morph animation-delay-2000 blur-soft-edge"
+                    style={{
+                      background: "linear-gradient(135deg, rgba(14, 165, 233, 0.4), rgba(14, 165, 233, 0.08))",
+                      borderRadius: "40% 60% 70% 30% / 50% 60% 40% 50%",
+                      filter: "blur(35px)",
+                      animationDuration: "20s",
+                      transform: "rotate(-10deg)",
+                      boxShadow: "0 0 40px rgba(14, 165, 233, 0.2)",
+                    }}
+                  />
+
+                  <div
+                    className="absolute w-[40%] h-[40%] top-[45%] left-[5%] animate-morph animation-delay-3000 blur-soft-edge"
+                    style={{
+                      background: "linear-gradient(135deg, rgba(249, 168, 212, 0.45), rgba(249, 168, 212, 0.08))",
+                      borderRadius: "50% 30% 60% 40% / 30% 60% 40% 70%",
+                      filter: "blur(30px)",
+                      animationDuration: "22s",
+                      transform: "rotate(15deg)",
+                      boxShadow: "0 0 50px rgba(249, 168, 212, 0.2)",
+                    }}
+                  />
+
+                  {/* Small accent elements */}
+                  <div
+                    className="absolute w-[20%] h-[20%] top-[20%] right-[15%] animate-float animation-delay-2500 blur-seamless"
+                    style={{
+                      background: "radial-gradient(circle, rgba(14, 165, 233, 0.4) 0%, rgba(14, 165, 233, 0) 70%)",
+                      borderRadius: "50%",
+                      filter: "blur(20px)",
+                    }}
+                  />
+
+                  <div
+                    className="absolute w-[15%] h-[15%] bottom-[25%] right-[20%] animate-float animation-delay-1500 blur-seamless"
+                    style={{
+                      background: "radial-gradient(circle, rgba(14, 165, 233, 0.5) 0%, rgba(14, 165, 233, 0) 70%)",
+                      borderRadius: "50%",
+                      filter: "blur(18px)",
+                    }}
+                  />
+
+                  <div
+                    className="absolute w-[12%] h-[12%] bottom-[20%] left-[30%] animate-float animation-delay-3500 blur-seamless"
+                    style={{
+                      background: "radial-gradient(circle, rgba(249, 168, 212, 0.5) 0%, rgba(249, 168, 212, 0) 70%)",
+                      borderRadius: "50%",
+                      filter: "blur(15px)",
+                    }}
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* About Section */}
+        <AboutSection />
+
+        {/* Where We've Gone Section */}
+        <WhereWeveGone/>
+
+        {/* Testimonials */}
+        <Testimonials />
+
+        {/* CTA Section */}
+        <CTASection />
       </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
     </div>
-  );
+  )
 }
