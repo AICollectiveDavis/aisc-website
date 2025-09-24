@@ -64,7 +64,7 @@ export function Navigation() {
                         {/* BEGINNER PROJECTS BLOCK */}
                       <NavigationMenuLink asChild>
                           <Link
-                          href="/initiatives/bp"
+                          href="/initiatives/#bp"
                           className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-white/20 hover:text-white focus:bg-white/20 focus:text-white"
                           >
                           <div className="text-sm font-medium leading-none">Beginner Projects</div>
@@ -77,7 +77,7 @@ export function Navigation() {
                       {/* SOFTWARE ENGINEERING BLOCK */}
                       <NavigationMenuLink asChild>
                         <Link
-                          href="/initiatives/swe"
+                          href="/initiatives/#swe"
                           className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-white/20 hover:text-white focus:bg-white/20 focus:text-white"
                         >
                           <div className="text-sm font-medium leading-none">Software Engineering</div>
@@ -90,7 +90,7 @@ export function Navigation() {
                         {/* R&D BLOCK */}
                       <NavigationMenuLink asChild>
                         <Link
-                          href="/initiatives/research"
+                          href="/initiatives/#research"
                           className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-white/20 hover:text-white focus:bg-white/20 focus:text-white"
                         >
                           <div className="text-sm font-medium leading-none">R&D</div>
@@ -103,7 +103,7 @@ export function Navigation() {
                       {/* FORGE X EDUCATION */}
                       <NavigationMenuLink asChild>
                         <Link
-                          href="/initiatives/forge"
+                          href="/initiatives/#forge"
                           className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-white/20 hover:text-white focus:bg-white/20 focus:text-white"
                         >
                           <div className="text-sm font-medium leading-none">Forge</div>
@@ -116,7 +116,7 @@ export function Navigation() {
                     {/* UXR BLOCK */}
                       <NavigationMenuLink asChild>
                         <Link
-                          href="/initiatives/uxr"
+                          href="/initiatives/#uxr"
                           className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-white/20 hover:text-white focus:bg-white/20 focus:text-white"
                         >
                           <div className="text-sm font-medium leading-none">User Experience Research</div>
@@ -140,7 +140,7 @@ export function Navigation() {
                         <NavigationMenuLink asChild>
                           <Link
                             className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md hover:bg-white/20 hover:text-white focus:bg-white/20 focus:text-white"
-                            href="/initiatives" 
+                            href="/teams" 
                           >
                             <div className="mb-2 mt-4 text-lg font-medium">Our Teams</div>
                             <p className="text-sm leading-tight text-muted-foreground">
@@ -164,7 +164,7 @@ export function Navigation() {
 
                         <NavigationMenuLink asChild>
                           <Link
-                          href="/teams/#memberdev"
+                          href="/teams/#member-development"
                           className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-white/20 hover:text-white focus:bg-white/20 focus:text-white"
                           >
                           <div className="text-sm font-medium leading-none">Member Development</div>
