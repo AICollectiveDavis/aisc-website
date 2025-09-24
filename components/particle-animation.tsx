@@ -208,10 +208,10 @@ export function ParticleAnimation({ className = "" }: ParticleAnimationProps) {
     const animate = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height)
 
-      for (let i = 0; i < particles.length; i++) {
-        particles[i].update()
-        particles[i].draw()
-      }
+      // for (let i = 0; i < particles.length; i++) {
+      //   particles[i].update()
+      //   particles[i].draw()
+      // }
       connect()
 
       requestAnimationFrame(animate)
