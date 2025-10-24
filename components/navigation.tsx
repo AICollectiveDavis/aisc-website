@@ -201,7 +201,7 @@ export function Navigation() {
                   </NavigationMenuLink>
                 </NavigationMenuItem>
 
-                <NavigationMenuItem>
+                {/* <NavigationMenuItem>
                   <NavigationMenuLink asChild>
                     <Link
                       href="/contact"
@@ -210,11 +210,11 @@ export function Navigation() {
                       Contact
                     </Link>
                   </NavigationMenuLink>
-                </NavigationMenuItem>
+                </NavigationMenuItem> */}
               </NavigationMenuList>
             </NavigationMenu>
 
-            <Button className="gradient-btn ml-4">Join Us</Button>
+            <Button className="gradient-btn"><Link href='/join'>Join Us</Link></Button>
           </div>
 
           {/* Mobile menu button */}
@@ -230,15 +230,15 @@ export function Navigation() {
               <Link href="/initiatives" className="text-muted-foreground hover:bg-white/20 hover:text-white focus:bg-white/20 focus:text-white transition-colors rounded-md px-2 py-1">
                 Initiatives
               </Link>
-              <Link href="/team" className="text-muted-foreground hover:bg-white/20 hover:text-white focus:bg-white/20 focus:text-white transition-colors rounded-md px-2 py-1">
-                Team
+              <Link href="/teams" className="text-muted-foreground hover:bg-white/20 hover:text-white focus:bg-white/20 focus:text-white transition-colors rounded-md px-2 py-1">
+                Teams
               </Link>
               <Link href="/about" className="text-muted-foreground hover:bg-white/20 hover:text-white focus:bg-white/20 focus:text-white transition-colors rounded-md px-2 py-1">
                 About Us
               </Link>
-              <Link href="/contact" className="text-muted-foreground hover:bg-white/20 hover:text-white focus:bg-white/20 focus:text-white transition-colors rounded-md px-2 py-1">
+              {/* <Link href="/contact" className="text-muted-foreground hover:bg-white/20 hover:text-white focus:bg-white/20 focus:text-white transition-colors rounded-md px-2 py-1">
                 Contact
-              </Link>
+              </Link> */}
               <Button className="gradient-btn w-fit">Join Us</Button>
             </div>
           </div>
