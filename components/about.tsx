@@ -1,6 +1,51 @@
+"use client"
+
+import { useEffect, useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import Link from "next/link"
+
+function CountUp({ end, duration = 2000, plus = false, className = "" }: { 
+  end: number
+  duration?: number
+  plus?: boolean
+  className?: string 
+}) {
+  const [count, setCount] = useState(0)
+
+  useEffect(() => {
+    let startTime: number | null = null
+    let animationFrame: number
+
+    const animate = (currentTime: number) => {
+      if (!startTime) startTime = currentTime
+      const progress = currentTime - startTime
+      const percentage = Math.min(progress / duration, 1)
+      
+      // Linear animation
+      const current = Math.floor(percentage * end)
+      
+      setCount(current)
+
+      if (percentage < 1) {
+        animationFrame = requestAnimationFrame(animate)
+      } else {
+        setCount(end)
+      }
+    }
+
+    animationFrame = requestAnimationFrame(animate)
+
+    return () => cancelAnimationFrame(animationFrame)
+  }, [end, duration])
+
+  return (
+    <div className={className}>
+      {count.toLocaleString()}
+      {plus && "+"}
+    </div>
+  )
+}
 
 export function AboutSection() {
   return (
@@ -31,19 +76,19 @@ export function AboutSection() {
               <h2 className="text-3xl font-bold mb-4">By the Numbers</h2>
               <div className="grid grid-cols-2 gap-9 flex-grow content-center">
                 <div className="text-center">
-                  <div className="text-6xl font-bold text-primary mb-2">200+</div>
-                  <div className="text-muted-foreground">Active Members</div>
+              <CountUp end={3000} className="text-6xl font-bold text-primary mb-2" plus />
+                  <div className="text-muted-foreground">Students Impacted</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-6xl font-bold text-secondary mb-2">10+</div>
-                  <div className="text-muted-foreground">Workshops Per Year</div>
+                  <CountUp end={5} className="text-6xl font-bold text-secondary mb-2" plus />
+                  <div className="text-muted-foreground">Global Chapters</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-6xl font-bold text-primary mb-2">20+</div>
+                  <CountUp end={50} className="text-6xl font-bold text-primary mb-2" plus />
                   <div className="text-muted-foreground">Industry Events</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-6xl font-bold text-secondary mb-2">100+</div>
+                  <CountUp end={800} className="text-6xl font-bold text-secondary mb-2" plus />
                   <div className="text-muted-foreground">Projects Completed</div>
                 </div>
               </div>

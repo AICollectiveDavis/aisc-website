@@ -106,7 +106,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="/team"
+                  href="/teams"
                   className="text-base text-white/70 hover:text-primary transition-all duration-200 flex items-center"
                 >
                   <svg className="h-4 w-4 mr-2 text-primary/70" viewBox="0 0 20 20" fill="currentColor">
@@ -116,7 +116,7 @@ export default function Footer() {
                       clipRule="evenodd"
                     />
                   </svg>
-                  Team
+                  Teams
                 </Link>
               </li>
               <li>
@@ -149,7 +149,7 @@ export default function Footer() {
                   Join
                 </Link>
               </li>
-              <li>
+              {/* <li>
                 <Link
                   href="/contact"
                   className="text-base text-white/70 hover:text-primary transition-all duration-200 flex items-center"
@@ -163,7 +163,7 @@ export default function Footer() {
                   </svg>
                   Contact
                 </Link>
-              </li>
+              </li> */}
             </ul>
           </div>
 
@@ -229,7 +229,7 @@ export default function Footer() {
                     d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
                   />
                 </svg>
-                <span className="text-white/70 text-base">All Hands Meetings: TBA</span>
+                <span className="text-white/70 text-base">All Hands Meetings: Tuesdays, 7:30 PM, TLC 3215</span>
               </div>
             </div>
           </div>
@@ -238,7 +238,7 @@ export default function Footer() {
         {/* Copyright */}
         <div className="border-t border-white/10 mt-12 pt-6 text-center md:flex md:justify-between md:items-center">
           <p className="text-white/50 text-sm">© {currentYear} AI Student Collective. All rights reserved.</p>
-          <p className="text-white/50 text-sm mt-2 md:mt-0">Made with ❤️ by Inno + Member Dev</p>
+          <p className="text-white/50 text-sm mt-2 md:mt-0">Made with ❤️ by Member Dev</p>
         </div>
       </div>
     </footer>
