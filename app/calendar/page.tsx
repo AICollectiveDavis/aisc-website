@@ -194,7 +194,7 @@ export default function CalendarPage() {
 
                 {showPastEvents && (
                   <div className="border-t border-border/50 p-3 md:p-4 space-y-4 animate-in fade-in duration-300">
-                    {pastEvents.map((event, index) => (
+                    {pastEvents.map((event) => (
                       <Card 
                         key={event.id} 
                         className="glass-card overflow-hidden hover:bg-muted/30 transition-all duration-300"
@@ -271,7 +271,7 @@ export default function CalendarPage() {
           <div className="mt-12 text-center">
             <Card className="glass-card">
               <CardContent className="p-6 md:p-8">
-                <h3 className="text-xl font-bold mb-3">Don't Miss Out!</h3>
+                <h3 className="text-xl font-bold mb-3">Don&apos;t Miss Out!</h3>
                 <p className="text-sm text-muted-foreground mb-4 max-w-2xl mx-auto">
                   Stay updated on all our events by following us on social media and joining our community. 
                   New events are added regularly!
