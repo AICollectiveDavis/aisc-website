@@ -7,72 +7,72 @@ export default function Team() {
       name: "Curtis Chen",
       role: "President",
   // vertical: "Executive",
-      image: "/images/exec/yo-gurtis.png",
-      description: "Computer Science + Psychology, 4th Year",
+      image: "https://ca.slack-edge.com/T04AFMFAKPC-U054F8AMUJV-934bc2735b0d-512",
+      description: "Computer Science & Psychology, 4th Year",
       links: {
-        linkedin: "https://linkedin.com/in/curtischen",
-        github: "https://github.com",
-        email: "curtis@aisc.com",
+        linkedin: "https://linkedin.com/in/curtischen1",
+        // github: "https://github.com",
+        email: "curchen@ucdavis.edu",
       },
     },
     {
       name: "Prati Mehta",
       role: "Vice President, Operations",
   // vertical: "Operations",
-      image: "/images/exec/ppmehta.png",
+      image: "https://ca.slack-edge.com/T04AFMFAKPC-U06PH4ABP7S-0a5ba09f557c-512",
       description: "Cognitive Science & Statistics, 3rd Year",
       links: {
-        linkedin: "https://linkedin.com",
-        github: "https://github.com",
-        email: "prati@aisc.com",
+        linkedin: "https://linkedin.com/in/prati-mehta",
+        // github: "https://github.com",
+        email: "ppmehta@ucdavis.edu",
       },
     },
     {
       name: "Isha Rawal",
       role: "Vice President, Innovation",
   // vertical: "Innovation",
-      image: "/images/exec/goat.png",
+      image: "https://ca.slack-edge.com/T04AFMFAKPC-U068SNG95AM-6b9c6745c5f2-512",
       description: "Applied Math, 3rd Year",
       links: {
-        linkedin: "https://linkedin.com",
-        github: "https://github.com",
-        email: "isha@aisc.com",
+        // linkedin: "https://linkedin.com",
+        // github: "https://github.com",
+        email: "ikrawal@ucdavis.edu",
       },
     },
     {
       name: "Sathvik Parasa",
       role: "Vice President, Member Development",
   // vertical: "Member Development",
-      image: "/images/exec/goat(secondary).png",
+      image: "https://ca.slack-edge.com/T04AFMFAKPC-U07SSH6QMEG-11c82569bcd7-512",
       description: "Computer Science and Engineering, 3rd Year",
       links: {
-        linkedin: "https://linkedin.com",
-        github: "https://github.com",
-        email: "sathvik@aisc.com",
+        linkedin: "https://linkedin.com/in/sathvikparasa",
+        github: "https://github.com/sathvikparasa",
+        email: "saparasa@ucdavis.edu",
       },
     },
-    {
-      name: "Crystal Garcia",
-      role: "Director, Finance",
-      vertical: "Executive",
-      image: "/images/exec/goat(secondary).png",
-      description: "Data Science, 2nd Year",
-      links: {
-        linkedin: "https://linkedin.com",
-        github: "https://github.com",
-        email: "sathvik@aisc.com",
-      },
-    },
+    // {
+    //   name: "Crystal Garcia",
+    //   role: "Director, Finance",
+    //   vertical: "Executive",
+    //   image: "/images/exec/goat(secondary).png",
+    //   description: "Data Science, 2nd Year",
+    //   links: {
+    //     linkedin: "https://linkedin.com",
+    //     github: "https://github.com",
+    //     email: "sathvik@ucdavis.edu",
+    //   },
+    // },
     {
       name: "Pearl Vishen",
       role: "Director, Internal Affairs",
       vertical: "Executive",
-      image: "/images/exec/goat(secondary).png",
-      description: "Data Science, 2nd Year",
+      image: "https://ca.slack-edge.com/T04AFMFAKPC-U05TTAF6M7B-755384ce9444-512",
+      description: "Data Science, 4th Year",
       links: {
-        linkedin: "https://linkedin.com",
-        github: "https://github.com",
-        email: "sathvik@aisc.com",
+        // linkedin: "https://linkedin.com/in/pearlvishen",
+        // github: "https://github.com",
+        // email: "pvishen@ucdavis.edu",
       },
     },
   ]
@@ -82,48 +82,48 @@ export default function Team() {
       name: "Morgan Johnson",
       role: "Director,  Education",
   // vertical: "Member Development",
-      image: "/professional-headshot.png",
-      description: "Computer Science, 3rd Year",
+      image: "https://ca.slack-edge.com/T04AFMFAKPC-U07SK8A82QM-9abc68b385c6-512",
+      description: "Cognitive Science, 4th Year",
       links: {
         linkedin: "https://linkedin.com",
         github: "https://github.com",
-        email: "alex@aisc.com",
+        email: "alex@ucdavis.edu",
       },
     },
     {
       name: "Senara Millawabandara",
       role: "Director,  Education",
   // vertical: "Member Development",
-      image: "/professional-headshot.png",
+      image: "https://ca.slack-edge.com/T04AFMFAKPC-U088T161VMM-694d610901ac-512",
       description: "Data Science, 2nd Year",
       links: {
         linkedin: "https://linkedin.com",
         github: "https://github.com",
-        email: "sarah@aisc.com",
+        email: "sarah@ucdavis.edu",
       },
     },
     {
       name: "Saanika Gupta",
       role: "Director, Beginner Projects",
   // vertical: "Member Development",
-      image: "/professional-headshot.png",
+      image: "https://ca.slack-edge.com/T04AFMFAKPC-U08LG7Z0533-34cdd6a9bc2f-512",
       description: "Computer Engineering, 4th Year",
       links: {
         linkedin: "https://linkedin.com",
         github: "https://github.com",
-        email: "michael@aisc.com",
+        email: "michael@ucdavis.edu",
       },
     },
     {
       name: "Jasleen Gunsi",
       role: "Director, UXR",
       vertical: "Member Development",
-      image: "/professional-headshot.png",
+      image: "https://ca.slack-edge.com/T04AFMFAKPC-U07T83N9QRE-08e71c764ef1-512",
       description: "Computer Engineering, 4th Year",
       links: {
         linkedin: "https://linkedin.com",
         github: "https://github.com",
-        email: "michael@aisc.com",
+        email: "michael@ucdavis.edu",
       },
     },
   ]
@@ -133,60 +133,60 @@ export default function Team() {
       name: "Aparna Chatterjee",
       role: "Director, R&D",
   // vertical: "Innovation",
-      image: "/professional-headshot.png",
+      image: "https://ca.slack-edge.com/T04AFMFAKPC-U08U1K33VEX-27186cc46704-512",
       description: "Computer Science, Graduate Student",
       links: {
         linkedin: "https://linkedin.com",
         github: "https://github.com",
-        email: "emma@aisc.com",
+        email: "emma@ucdavis.edu",
       },
     },
     {
       name: "Abhinav Tata",
       role: "Engineering Manager",
   // vertical: "Innovation",
-      image: "/professional-headshot.png",
+      image: "https://ca.slack-edge.com/T04AFMFAKPC-U06P56EG3NH-779da646821f-512",
       description: "Data Science, 3rd Year",
       links: {
         linkedin: "https://linkedin.com",
         github: "https://github.com",
-        email: "david@aisc.com",
+        email: "david@ucdavis.edu",
       },
     },
     {
       name: "Jonathan Levitsky",
       role: "Engineering Manager",
   // vertical: "Innovation",
-      image: "/professional-headshot.png",
+      image: "https://ca.slack-edge.com/T04AFMFAKPC-U07SPUGPZV1-201566c84656-512",
       description: "Computer Engineering, 4th Year",
       links: {
         linkedin: "https://linkedin.com",
         github: "https://github.com",
-        email: "lisa@aisc.com",
+        email: "lisa@ucdavis.edu",
       },
     },
     {
       name: "Keren Skariah",
       role: "Engineering Manager",
   // vertical: "Innovation",
-      image: "/professional-headshot.png",
+      image: "https://ca.slack-edge.com/T04AFMFAKPC-U06S6GP7F5K-6d0419618e7d-512",
       description: "Computer Engineering, 4th Year",
       links: {
-        linkedin: "https://linkedin.com",
-        github: "https://github.com",
-        email: "lisa@aisc.com",
+        linkedin: "https://linkedin.com/in/kerenskariah",
+        github: "https://github.com/kerenskariah/",
+        email: "krskariah@ucdavis.edu",
       },
     },
         {
       name: "Nelson Lee",
       role: "Engineering Manager",
   // vertical: "Innovation",
-      image: "/professional-headshot.png",
+      image: "https://ca.slack-edge.com/T04AFMFAKPC-U08KZ6Y9W4W-ab77de61c39f-512",
       description: "Computer Engineering, 4th Year",
       links: {
         linkedin: "https://linkedin.com",
         github: "https://github.com",
-        email: "lisa@aisc.com",
+        email: "lisa@ucdavis.edu",
       },
     },
             {
@@ -198,7 +198,7 @@ export default function Team() {
       links: {
         linkedin: "https://linkedin.com",
         github: "https://github.com",
-        email: "lisa@aisc.com",
+        email: "lisa@ucdavis.edu",
       },
     },
   ]
@@ -208,23 +208,23 @@ export default function Team() {
       name: "Madeline Sullivan",
       role: "Director, Content Strategy",
   // vertical: "Operations",
-      image: "/images/exec/ihatemybffinalboss.png",
-      description: "Business Administration, 3rd Year",
+      image: "https://ca.slack-edge.com/T04AFMFAKPC-U08SZ1DH5S5-a3e9e6579a72-512",
+      // description: "Business Administration, 3rd Year",
       links: {
-        linkedin: "https://linkedin.com",
-        email: "crystal@aisc.com",
+        // linkedin: "https://linkedin.com",
+        // email: "crystal@ucdavis.edu",
       },
     },
     {
       name: "Keila Bautista",
       role: "Director, Design",
   // vertical: "Operations",
-      image: "/images/exec/twin.png",
+      image: "https://ca.slack-edge.com/T04AFMFAKPC-U08LW3DHZ63-f0c781d1cf6d-512",
       description: "Computer Engineering, 2nd Year",
       links: {
         linkedin: "https://linkedin.com",
-        github: "https://github.coexem",
-        email: "pearl@aisc.com",
+        github: "https://github.com",
+        email: "pearl@ucdavis.edu",
       },
     },
     {
@@ -235,7 +235,7 @@ export default function Team() {
       description: "Marketing, 3rd Year",
       links: {
         linkedin: "https://linkedin.com",
-        email: "james@aisc.com",
+        email: "james@ucdavis.edu",
       },
     },
     {
@@ -246,25 +246,25 @@ export default function Team() {
       description: "Marketing, 3rd Year",
       links: {
         linkedin: "https://linkedin.com",
-        email: "james@aisc.com",
+        email: "james@ucdavis.edu",
       },
     },
         {
       name: "Sruti Elangovan",
       role: "Photographer",
   // vertical: "Operations",
-      image: "/professional-headshot.png",
+      image: "https://ca.slack-edge.com/T04AFMFAKPC-U08RLQRLA23-8439fc3fd1bd-512",
       description: "Marketing, 3rd Year",
       links: {
         linkedin: "https://linkedin.com",
-        email: "james@aisc.com",
+        email: "james@ucdavis.edu",
       },
     },
   ]
 
   const TeamCard = ({ member }: { member: any }) => (
     <div className="glass-card rounded-xl overflow-hidden transition-all duration-300 hover:scale-[1.02] hover:shadow-xl">
-      <div className="aspect-[4/3] relative bg-gradient-to-br from-primary/20 to-accent/20">
+      <div className="aspect-square relative bg-gradient-to-br from-primary/20 to-accent/20 max-w-[300px] mx-auto">
         <Image
           src={member.image || "/placeholder.svg"}
           alt={member.name}
@@ -317,7 +317,7 @@ export default function Team() {
     <section className="py-8">
       <div className="container mx-auto px-4">
         <h2 id={id} className="text-3xl font-bold mb-8 text-center">{title}</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 max-w-7xl mx-auto">
           {members.map((member, index) => (
             <TeamCard key={index} member={member} />
           ))}
