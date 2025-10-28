@@ -1,40 +1,41 @@
-import type { Metadata } from "next"
-import Image from "next/image"
+import type { Metadata } from 'next';
+import Image from 'next/image';
 // import Link from "next/link"
-import {PersonStanding, LibraryBig, Globe } from "lucide-react"
+import { PersonStanding, LibraryBig, Globe } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: "About: AI Student Collective",
-  description: "Learn about the AI Student Collective at UC Davis. Our mission, history, leadership team, and values.",
-}
+    title: 'About: AI Student Collective',
+    description:
+        'Learn about the AI Student Collective at UC Davis. Our mission, history, leadership team, and values.',
+};
 
 export default function About() {
-  // Club values data with modern design
-  const values = [
-    {
-      title: "Accessibility",
-      description:
-        "Promoting AI accessibility for all by breaking down the barriers to knowledge and opportunity.",
-      icon: <PersonStanding className="w-10 h-10" />,
-    },
-    {
-      title: "Literacy",
-      description:
-        "Empowering students with enriching resources and experiences to shape the future.",
-      icon: <LibraryBig className="w-10 h-10" />,
-    },
-    {
-      title: "Diversity",
-      description:
-        "Celebrating diversity in AI, fostering innovation through varied perspectives.",
-      icon: <Globe className="w-10 h-10" />,
-    },
-  ]
+    // Club values data with modern design
+    const values = [
+        {
+            title: 'Accessibility',
+            description:
+                'Promoting AI accessibility for all by breaking down the barriers to knowledge and opportunity.',
+            icon: <PersonStanding className="w-10 h-10" />,
+        },
+        {
+            title: 'Literacy',
+            description:
+                'Empowering students with enriching resources and experiences to shape the future.',
+            icon: <LibraryBig className="w-10 h-10" />,
+        },
+        {
+            title: 'Diversity',
+            description:
+                'Celebrating diversity in AI, fostering innovation through varied perspectives.',
+            icon: <Globe className="w-10 h-10" />,
+        },
+    ];
 
-  return (
-    <main className="min-h-screen bg-background">
-      {/* Hero section */}
-      {/* <section className="py-20 bg-background relative overflow-hidden">
+    return (
+        <main className="min-h-screen bg-background">
+            {/* Hero section */}
+            {/* <section className="py-20 bg-background relative overflow-hidden">
         <div className="absolute inset-0 z-0 opacity-5">
           <div className="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(68,68,68,.2)_50%,transparent_75%,transparent_100%)] bg-[length:250px_250px]"></div>
         </div>
@@ -43,223 +44,257 @@ export default function About() {
 
       </section> */}
 
-      {/* Photo Collage - Community Section */}
-      <section className="py-16 bg-muted/30 relative overflow-hidden">
-        <div className="absolute top-0 left-0 w-1/4 h-1/4 bg-primary/5 rounded-full blur-[80px]"></div>
-        <div className="absolute bottom-0 right-0 w-1/4 h-1/4 bg-pink-400/5 rounded-full blur-[80px]"></div>
+            {/* Photo Collage - Community Section */}
+            <section className="py-16 bg-muted/30 relative overflow-hidden">
+                <div className="absolute top-0 left-0 w-1/4 h-1/4 bg-primary/5 rounded-full blur-[80px]"></div>
+                <div className="absolute bottom-0 right-0 w-1/4 h-1/4 bg-pink-400/5 rounded-full blur-[80px]"></div>
 
-        <div className="container relative z-10 mx-auto px-4">
-          {/* <div className="text-center mb-10">
+                <div className="container relative z-10 mx-auto px-4">
+                    {/* <div className="text-center mb-10">
             <h2 className="text-3xl font-bold mb-4">Our Community</h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
               A glimpse into our collaborative AI journey at UC Davis
             </p>
           </div> */}
-                        <div className="container relative z-10 mx-auto px-4">
-          <div className="text-center max-w-3xl mx-auto">
-            <h1 className="text-4xl md:text-5xl font-bold my-6 text-balance">About Our Club</h1>
-            <p className="text-muted-foreground text-lg text-pretty">
-              Building the next generation of AI leaders and innovators at UC Davis
-            </p>
-          </div>
-        </div>
+                    <div className="container relative z-10 mx-auto px-4">
+                        <div className="text-center max-w-3xl mx-auto">
+                            <h1 className="text-4xl md:text-5xl font-bold my-6 text-balance">
+                                About Our Club
+                            </h1>
+                            <p className="text-muted-foreground text-lg text-pretty">
+                                Building the next generation of AI leaders and
+                                innovators at UC Davis
+                            </p>
+                        </div>
+                    </div>
 
-          <div className="relative h-[600px] md:h-[700px] max-w-6xl mx-auto mt-8">
-            {/* Main center photo */}
-            <div className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[55%] md:w-[45%] z-10 transition-all duration-500 hover:z-50 hover:scale-110 hover:rotate-0 cursor-pointer">
-              <div
-                style={{ transform: `rotate(-1deg) scale(1.02)` }}
-                className="bg-white p-3 rounded-lg shadow-xl border hover:shadow-2xl transition-shadow duration-500"
-              >
-                <div className="relative aspect-video overflow-hidden rounded bg-muted">
-                  <Image
-                    src="/pics/grad_25.jpg"
-                    alt="AISC Team Photo"
-                    width={500}
-                    height={300}
-                    className="w-full h-full object-cover"
-                  />
+                    <div className="relative h-[600px] md:h-[700px] max-w-6xl mx-auto mt-8">
+                        {/* Main center photo */}
+                        <div className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[55%] md:w-[45%] z-10 transition-all duration-500 hover:z-50 hover:scale-110 hover:rotate-0 cursor-pointer">
+                            <div
+                                style={{
+                                    transform: `rotate(-1deg) scale(1.02)`,
+                                }}
+                                className="bg-white p-3 rounded-lg shadow-xl border hover:shadow-2xl transition-shadow duration-500"
+                            >
+                                <div className="relative aspect-video overflow-hidden rounded bg-muted">
+                                    <Image
+                                        src="/pics/grad_25.jpg"
+                                        alt="AISC Team Photo"
+                                        width={500}
+                                        height={300}
+                                        className="w-full h-full object-cover"
+                                    />
+                                </div>
+                                <p className="text-muted text-sm pt-2 px-1 font-medium">
+                                    Class of &#39;25 Grads!
+                                </p>
+                            </div>
+                        </div>
+
+                        {/* Top left photo */}
+                        <div className="absolute left-[5%] md:left-[8%] top-[5%] w-[40%] md:w-[28%] z-20 transition-all duration-500 hover:z-50 hover:scale-110 hover:rotate-0 cursor-pointer">
+                            <div
+                                style={{ transform: `rotate(4deg) scale(1)` }}
+                                className="bg-white p-3 rounded-lg shadow-xl border hover:shadow-2xl transition-shadow duration-500"
+                            >
+                                <div className="relative aspect-video overflow-hidden rounded bg-muted">
+                                    <Image
+                                        src="/pics/bp_wq_showcase.JPG"
+                                        alt="AI Workshop"
+                                        width={250}
+                                        height={250}
+                                        className="w-full h-full object-cover"
+                                    />
+                                </div>
+                                <p className="text-muted text-sm pt-2 px-1 font-medium">
+                                    WQ &#39;25 Beginner Projects
+                                </p>
+                            </div>
+                        </div>
+
+                        {/* Bottom right photo */}
+                        <div className="absolute right-[5%] md:right-[8%] bottom-[5%] w-[38%] md:w-[26%] z-30 transition-all duration-500 hover:z-50 hover:scale-110 hover:rotate-0 cursor-pointer">
+                            <div
+                                style={{ transform: `rotate(-3deg) scale(1)` }}
+                                className="bg-white p-3 rounded-lg shadow-xl border hover:shadow-2xl transition-shadow duration-500"
+                            >
+                                <div className="relative aspect-square overflow-hidden rounded bg-muted">
+                                    <Image
+                                        src="/pics/friendsgiving.JPG"
+                                        alt="Hackathon"
+                                        width={250}
+                                        height={250}
+                                        className="w-full h-full object-cover"
+                                    />
+                                </div>
+                                <p className="text-muted text-sm pt-2 px-1 font-medium">
+                                    Friendsgiving Potluck &#39;24
+                                </p>
+                            </div>
+                        </div>
+
+                        {/* Top right photo */}
+                        <div className="absolute right-[12%] md:right-[15%] top-[15%] w-[35%] md:w-[24%] z-15 transition-all duration-500 hover:z-50 hover:scale-110 hover:rotate-0 cursor-pointer">
+                            <div
+                                style={{
+                                    transform: `rotate(-5deg) scale(0.95)`,
+                                }}
+                                className="bg-white p-3 rounded-lg shadow-xl border hover:shadow-2xl transition-shadow duration-500"
+                            >
+                                <div className="relative aspect-[4/3] overflow-hidden rounded bg-muted">
+                                    <Image
+                                        src="/pics/WomenInTech.jpg"
+                                        alt="Project Presentation"
+                                        width={250}
+                                        height={200}
+                                        className="w-full h-full object-cover"
+                                    />
+                                </div>
+                                <p className="text-muted text-sm pt-2 px-1 font-medium">
+                                    Annual Women in Tech Event
+                                </p>
+                            </div>
+                        </div>
+
+                        {/* Left middle photo */}
+                        <div className="absolute left-[2%] md:left-[5%] top-[45%] w-[32%] md:w-[22%] z-25 transition-all duration-500 hover:z-50 hover:scale-110 hover:rotate-0 cursor-pointer">
+                            <div
+                                style={{
+                                    transform: `rotate(6deg) scale(0.92)`,
+                                }}
+                                className="bg-white p-3 rounded-lg shadow-xl border hover:shadow-2xl transition-shadow duration-500"
+                            >
+                                <div className="relative aspect-square overflow-hidden rounded bg-muted">
+                                    <Image
+                                        src="/pics/winter_kickoff.PNG"
+                                        alt="Winter 2025 Kickoff"
+                                        width={200}
+                                        height={200}
+                                        className="w-full h-full object-cover"
+                                    />
+                                </div>
+                                <p className="text-muted text-sm pt-2 px-1 font-medium">
+                                    Quarterly Kickoff Meeting
+                                </p>
+                            </div>
+                        </div>
+
+                        {/* Bottom center photo */}
+                        <div className="absolute left-[35%] md:left-[38%] bottom-[8%] w-[30%] md:w-[20%] z-35 transition-all duration-500 hover:z-50 hover:scale-110 hover:rotate-0 cursor-pointer">
+                            <div
+                                style={{ transform: `rotate(2deg) scale(1)` }}
+                                className="bg-white p-3 rounded-lg shadow-xl border hover:shadow-2xl transition-shadow duration-500"
+                            >
+                                <div className="relative aspect-[3/4] overflow-hidden rounded bg-muted">
+                                    <Image
+                                        src="/pics/tuff_ahh_merch.jpg"
+                                        alt="Merch!"
+                                        width={200}
+                                        height={250}
+                                        className="w-full h-full object-cover"
+                                    />
+                                </div>
+                                <p className="text-muted text-sm pt-2 px-1 font-medium">
+                                    Merch!
+                                </p>
+                            </div>
+                        </div>
+
+                        {/* Top center small photo */}
+                        <div className="absolute left-[45%] md:left-[48%] top-[8%] w-[25%] md:w-[18%] z-40 transition-all duration-500 hover:z-50 hover:scale-110 hover:rotate-0 cursor-pointer">
+                            <div
+                                style={{ transform: `rotate(-4deg)` }}
+                                className="bg-white p-3 rounded-lg shadow-xl border hover:shadow-2xl transition-shadow duration-500"
+                            >
+                                <div className="relative overflow-hidden rounded bg-muted">
+                                    <Image
+                                        src="/pics/retreat.jpg"
+                                        alt="Award Ceremony"
+                                        width={150}
+                                        height={150}
+                                        className="w-full h-full object-cover"
+                                    />
+                                </div>
+                                <p className="text-muted text-sm pt-2 px-1 font-medium">
+                                    Yosemite Winter Retreat
+                                </p>
+                            </div>
+                        </div>
+
+                        {/* Right middle small photo */}
+                        <div className="absolute right-[2%] md:right-[4%] top-[55%] w-[28%] md:w-[19%] z-45 transition-all duration-500 hover:z-50 hover:scale-110 hover:rotate-0 cursor-pointer">
+                            <div
+                                style={{ transform: `rotate(7deg) scale(1.1)` }}
+                                className="bg-white p-3 rounded-lg shadow-xl border hover:shadow-2xl transition-shadow duration-500"
+                            >
+                                <div className="relative overflow-hidden rounded bg-muted">
+                                    <Image
+                                        src="/pics/current_board.jpg"
+                                        alt="Study Session"
+                                        width={400}
+                                        height={500}
+                                        className="w-full h-full object-cover"
+                                    />
+                                </div>
+                                <p className="text-muted text-sm pt-2 px-1 font-medium">
+                                    A-I-S-C
+                                </p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <p className="text-muted text-sm pt-2 px-1 font-medium">Class of &#39;25 Grads!</p>
-              </div>
-            </div>
+            </section>
 
-            {/* Top left photo */}
-            <div className="absolute left-[5%] md:left-[8%] top-[5%] w-[40%] md:w-[28%] z-20 transition-all duration-500 hover:z-50 hover:scale-110 hover:rotate-0 cursor-pointer">
-              <div
-                style={{ transform: `rotate(4deg) scale(1)` }}
-                className="bg-white p-3 rounded-lg shadow-xl border hover:shadow-2xl transition-shadow duration-500"
-              >
-                <div className="relative aspect-video overflow-hidden rounded bg-muted">
-                  <Image
-                    src="/pics/bp_wq_showcase.JPG"
-                    alt="AI Workshop"
-                    width={250}
-                    height={250}
-                    className="w-full h-full object-cover"
-                  />
+            {/* Mission section */}
+            <section className="py-16 bg-background">
+                <div className="container mx-auto px-4">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
+                        <div>
+                            <h2 className="text-3xl font-bold mb-6">
+                                Our Mission
+                            </h2>
+                            <div className="h-1 w-16 bg-primary mb-8"></div>
+                            <p className="text-muted-foreground mb-6">
+                                The Artificial Intelligence Student Collective
+                                (AISC) at UC Davis exists to foster a community
+                                of students passionate about artificial
+                                intelligence and its applications. We aim to
+                                bridge the gap between theoretical classroom
+                                learning and practical AI implementation.
+                            </p>
+                            <p className="text-muted-foreground mb-6">
+                                Through workshops, projects, hackathons, and
+                                industry connections, we provide students with
+                                the resources and support needed to thrive in
+                                the rapidly evolving field of AI. Our goal is to
+                                make AI education accessible to students from
+                                all disciplines and backgrounds.
+                            </p>
+                            <p className="text-muted-foreground">
+                                We believe in learning by doing, collaborating
+                                across disciplines, and exploring the ethical
+                                dimensions of AI technology.
+                            </p>
+                        </div>
+                        <div className="relative">
+                            <div className="absolute -inset-1 rounded-xl bg-gradient-to-r from-primary to-pink-400 blur-sm opacity-50"></div>
+                            <div className="relative bg-card rounded-xl overflow-hidden aspect-video border">
+                                <Image
+                                    src="/pics/aisc.jpg"
+                                    alt="AISC members collaborating on a project"
+                                    width={600}
+                                    height={600}
+                                    className="h-full w-full object-cover"
+                                />
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <p className="text-muted text-sm pt-2 px-1 font-medium">WQ &#39;25 Beginner Projects</p>
-              </div>
-            </div>
+            </section>
 
-            {/* Bottom right photo */}
-            <div className="absolute right-[5%] md:right-[8%] bottom-[5%] w-[38%] md:w-[26%] z-30 transition-all duration-500 hover:z-50 hover:scale-110 hover:rotate-0 cursor-pointer">
-              <div
-                style={{ transform: `rotate(-3deg) scale(1)` }}
-                className="bg-white p-3 rounded-lg shadow-xl border hover:shadow-2xl transition-shadow duration-500"
-              >
-                <div className="relative aspect-square overflow-hidden rounded bg-muted">
-                  <Image
-                    src="/pics/friendsgiving.JPG"
-                    alt="Hackathon"
-                    width={250}
-                    height={250}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <p className="text-muted text-sm pt-2 px-1 font-medium">Friendsgiving Potluck &#39;24</p>
-              </div>
-            </div>
-
-            {/* Top right photo */}
-            <div className="absolute right-[12%] md:right-[15%] top-[15%] w-[35%] md:w-[24%] z-15 transition-all duration-500 hover:z-50 hover:scale-110 hover:rotate-0 cursor-pointer">
-              <div
-                style={{ transform: `rotate(-5deg) scale(0.95)` }}
-                className="bg-white p-3 rounded-lg shadow-xl border hover:shadow-2xl transition-shadow duration-500"
-              >
-                <div className="relative aspect-[4/3] overflow-hidden rounded bg-muted">
-                  <Image
-                    src="/pics/WomenInTech.jpg"
-                    alt="Project Presentation"
-                    width={250}
-                    height={200}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <p className="text-muted text-sm pt-2 px-1 font-medium">Annual Women in Tech Event</p>
-              </div>
-            </div>
-
-            {/* Left middle photo */}
-            <div className="absolute left-[2%] md:left-[5%] top-[45%] w-[32%] md:w-[22%] z-25 transition-all duration-500 hover:z-50 hover:scale-110 hover:rotate-0 cursor-pointer">
-              <div
-                style={{ transform: `rotate(6deg) scale(0.92)` }}
-                className="bg-white p-3 rounded-lg shadow-xl border hover:shadow-2xl transition-shadow duration-500"
-              >
-                <div className="relative aspect-square overflow-hidden rounded bg-muted">
-                  <Image
-                    src="/pics/winter_kickoff.PNG"
-                    alt="Winter 2025 Kickoff"
-                    width={200}
-                    height={200}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <p className="text-muted text-sm pt-2 px-1 font-medium">Quarterly Kickoff Meeting</p>
-              </div>
-            </div>
-
-            {/* Bottom center photo */}
-            <div className="absolute left-[35%] md:left-[38%] bottom-[8%] w-[30%] md:w-[20%] z-35 transition-all duration-500 hover:z-50 hover:scale-110 hover:rotate-0 cursor-pointer">
-              <div
-                style={{ transform: `rotate(2deg) scale(1)` }}
-                className="bg-white p-3 rounded-lg shadow-xl border hover:shadow-2xl transition-shadow duration-500"
-              >
-                <div className="relative aspect-[3/4] overflow-hidden rounded bg-muted">
-                  <Image
-                    src="/pics/tuff_ahh_merch.jpg"
-                    alt="Merch!"
-                    width={200}
-                    height={250}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <p className="text-muted text-sm pt-2 px-1 font-medium">Merch!</p>
-              </div>
-            </div>
-
-            {/* Top center small photo */}
-            <div className="absolute left-[45%] md:left-[48%] top-[8%] w-[25%] md:w-[18%] z-40 transition-all duration-500 hover:z-50 hover:scale-110 hover:rotate-0 cursor-pointer">
-              <div
-                style={{ transform: `rotate(-4deg)` }}
-                className="bg-white p-3 rounded-lg shadow-xl border hover:shadow-2xl transition-shadow duration-500"
-              >
-                <div className="relative overflow-hidden rounded bg-muted">
-                  <Image
-                    src="/pics/retreat.jpg"
-                    alt="Award Ceremony"
-                    width={150}
-                    height={150}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <p className="text-muted text-sm pt-2 px-1 font-medium">Yosemite Winter Retreat</p>
-              </div>
-            </div>
-
-            {/* Right middle small photo */}
-            <div className="absolute right-[2%] md:right-[4%] top-[55%] w-[28%] md:w-[19%] z-45 transition-all duration-500 hover:z-50 hover:scale-110 hover:rotate-0 cursor-pointer">
-              <div
-                style={{ transform: `rotate(7deg) scale(1.1)` }}
-                className="bg-white p-3 rounded-lg shadow-xl border hover:shadow-2xl transition-shadow duration-500"
-              >
-                <div className="relative overflow-hidden rounded bg-muted">
-                  <Image
-                    src="/pics/current_board.jpg"
-                    alt="Study Session"
-                    width={400}
-                    height={500}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <p className="text-muted text-sm pt-2 px-1 font-medium">A-I-S-C</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Mission section */}
-      <section className="py-16 bg-background">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
-            <div>
-              <h2 className="text-3xl font-bold mb-6">Our Mission</h2>
-              <div className="h-1 w-16 bg-primary mb-8"></div>
-              <p className="text-muted-foreground mb-6">
-                The Artificial Intelligence Student Collective (AISC) at UC Davis exists to foster a community of students
-                passionate about artificial intelligence and its applications. We aim to bridge the gap between
-                theoretical classroom learning and practical AI implementation.
-              </p>
-              <p className="text-muted-foreground mb-6">
-                Through workshops, projects, hackathons, and industry connections, we provide students with the
-                resources and support needed to thrive in the rapidly evolving field of AI. Our goal is to make AI
-                education accessible to students from all disciplines and backgrounds.
-              </p>
-              <p className="text-muted-foreground">
-                We believe in learning by doing, collaborating across disciplines, and exploring the ethical dimensions
-                of AI technology.
-              </p>
-            </div>
-            <div className="relative">
-              <div className="absolute -inset-1 rounded-xl bg-gradient-to-r from-primary to-pink-400 blur-sm opacity-50"></div>
-              <div className="relative bg-card rounded-xl overflow-hidden aspect-video border">
-                <Image
-                  src="/pics/aisc.jpg"
-                  alt="AISC members collaborating on a project"
-                  width={600}
-                  height={600}
-                  className= "h-full w-full object-cover"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* History section */}
-      {/* <section className="py-16 bg-muted/30">
+            {/* History section */}
+            {/* <section className="py-16 bg-muted/30">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold mb-4">Our History</h2>
@@ -339,41 +374,46 @@ export default function About() {
         </div>
       </section> */}
 
-      {/* Values Section */}
-      <section className="pb-16 bg-background">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold mb-4">Our Values</h2>
-            <p className="text-muted-foreground max-w-3xl mx-auto">
-              The principles that guide our club&#39;s activities and decisions
-            </p>
-          </div>
+            {/* Values Section */}
+            <section className="pb-16 bg-background">
+                <div className="container mx-auto px-4">
+                    <div className="text-center mb-12">
+                        <h2 className="text-3xl font-bold mb-4">Our Values</h2>
+                        <p className="text-muted-foreground max-w-3xl mx-auto">
+                            The principles that guide our club&#39;s activities
+                            and decisions
+                        </p>
+                    </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-            {values.map((value, index) => (
-              <div
-                key={index}
-                className="bg-card p-6 rounded-2xl border hover:border-primary/20 transition-all duration-300 hover:shadow-lg group"
-              >
-                <div
-                  className={`mb-6 p-4 rounded-xl inline-block ${
-                    index % 2 === 0 ? "bg-primary/10 text-primary" : "bg-pink-400/10 text-pink-400"
-                  }`}
-                >
-                  {value.icon}
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                        {values.map((value, index) => (
+                            <div
+                                key={index}
+                                className="bg-card p-6 rounded-2xl border hover:border-primary/20 transition-all duration-300 hover:shadow-lg group"
+                            >
+                                <div
+                                    className={`mb-6 p-4 rounded-xl inline-block ${
+                                        index % 2 === 0
+                                            ? 'bg-primary/10 text-primary'
+                                            : 'bg-pink-400/10 text-pink-400'
+                                    }`}
+                                >
+                                    {value.icon}
+                                </div>
+                                <h3 className="text-2xl font-bold mb-3 group-hover:text-primary transition-colors duration-300">
+                                    {value.title}
+                                </h3>
+                                <p className="text-muted-foreground text-lg">
+                                    {value.description}
+                                </p>
+                            </div>
+                        ))}
+                    </div>
                 </div>
-                <h3 className="text-2xl font-bold mb-3 group-hover:text-primary transition-colors duration-300">
-                  {value.title}
-                </h3>
-                <p className="text-muted-foreground text-lg">{value.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+            </section>
 
-      {/* Join call to action */}
-      {/* <section className="py-16 bg-muted/30">
+            {/* Join call to action */}
+            {/* <section className="py-16 bg-muted/30">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-3xl font-bold mb-6">Join Our Community</h2>
@@ -395,6 +435,6 @@ export default function About() {
           </div>
         </div>
       </section> */}
-    </main>
-  )
+        </main>
+    );
 }

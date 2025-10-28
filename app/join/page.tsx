@@ -1,6 +1,3 @@
 export default function Join() {
-    return (
-        <a>Hello</a>
-        
-    )
+    return <a>Hello</a>;
 }
