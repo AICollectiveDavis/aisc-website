@@ -11,6 +11,8 @@ const techCompanies = [
     { name: 'LinkedIn', logo: '/logos/linkedin.svg' },
     { name: 'Visa', logo: '/logos/visa-cropped.svg' },
     { name: 'IBM', logo: '/logos/IBM.svg' },
+    { name: 'Tesla', logo: '/logos/tesla.png'},
+    { name: 'Salesforce', logo: '/logos/salesforce.svg' },
     { name: 'CME Group', logo: '/logos/cme.svg' },
     { name: 'Mercedes-Benz', logo: '/logos/benz.svg' },
     { name: 'CVS', logo: '/logos/cvs.svg' },

@@ -49,36 +49,6 @@ const initiatives = [
         image: '/pics/r&d.jpeg',
         accent: 'cyan',
     },
-    // {
-    //     id: 'forge',
-    //     title: 'Forge',
-    //     subtitle: 'Compete & Create',
-    //     description:
-    //         'Participate in local community hackathons. Build, learn, and network in a fast-paced, supportive environment.',
-    //     details: [
-    //         'Community hackathons',
-    //         'Team-based rapid prototyping',
-    //         'Workshops and prep sessions',
-    //         'All skill levels welcome',
-    //     ],
-    //     image: '/pics/retreat.jpg',
-    //     accent: 'pink',
-    // },
-    // {
-    //     id: 'uxr',
-    //     title: 'UX Research',
-    //     subtitle: 'Shape the Future',
-    //     description:
-    //         'Collect and analyze data to improve internal functions. Help shape the club\'s direction and impact.',
-    //     details: [
-    //         'Surveys and interviews',
-    //         'Data-driven improvements',
-    //         'Present findings to leadership',
-    //         'Make a real impact',
-    //     ],
-    //     image: '/pics/friendsgiving.JPG',
-    //     accent: 'cyan',
-    // },
 ];
 
 function InitiativeCard({ initiative, index }: { initiative: typeof initiatives[0]; index: number }) {

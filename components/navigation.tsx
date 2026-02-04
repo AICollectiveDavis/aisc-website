@@ -25,7 +25,6 @@ export function Navigation() {
                     {/* Logo */}
                     <Link href="/" className="flex items-center group">
                         <div className="relative h-10 w-8 mr-5 transform transition-all duration-300 group-hover:scale-105">
-                            {/* <span className="text-white font-bold text-sm">AI</span> */}
                             <Image
                                 src={Logo}
                                 alt="AI Student Collective Logo"
@@ -38,7 +37,6 @@ export function Navigation() {
                                 className="brightness-110 drop-shadow-[0_0_15px_rgba(14,165,233,0.5)] transition-all duration-300 group-hover:drop-shadow-[0_0_18px_rgba(14,165,233,0.7)]"
                             />
                         </div>
-                        {/* <span className="font-semibold text-foreground hidden sm:block">AI Student Collective</span> */}
                     </Link>
 
                     <div className="hidden md:flex items-center space-x-4">
@@ -119,39 +117,6 @@ export function Navigation() {
                                                     </p>
                                                 </Link>
                                             </NavigationMenuLink>
-
-                                            {/* FORGE X EDUCATION
-                                            <NavigationMenuLink asChild>
-                                                <Link
-                                                    href="/initiatives/#forge"
-                                                    className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-white/20 hover:text-white focus:bg-white/20 focus:text-white"
-                                                >
-                                                    <div className="text-sm font-medium leading-none">
-                                                        Forge
-                                                    </div>
-                                                    <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-                                                        Participate in local
-                                                        community hackathons.
-                                                    </p>
-                                                </Link>
-                                            </NavigationMenuLink> */}
-
-                                            {/* UXR BLOCK */}
-                                            {/* <NavigationMenuLink asChild>
-                                                <Link
-                                                    href="/initiatives/#uxr"
-                                                    className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-white/20 hover:text-white focus:bg-white/20 focus:text-white"
-                                                >
-                                                    <div className="text-sm font-medium leading-none">
-                                                        User Experience Research
-                                                    </div>
-                                                    <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-                                                        Collect and analyze data
-                                                        to improve internal
-                                                        functions.
-                                                    </p>
-                                                </Link>
-                                            </NavigationMenuLink> */}
                                         </div>
                                     </NavigationMenuContent>
                                 </NavigationMenuItem>
@@ -285,9 +250,6 @@ export function Navigation() {
                             >
                                 About Us
                             </Link>
-                            {/* <Link href="/contact" className="text-muted-foreground hover:bg-white/20 hover:text-white focus:bg-white/20 focus:text-white transition-colors rounded-md px-2 py-1">
-                Contact
-              </Link> */}
                             <Button className="gradient-btn w-fit">
                                 Join Us
                             </Button>

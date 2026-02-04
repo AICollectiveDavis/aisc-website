@@ -2,7 +2,6 @@
 
 import { useEffect, useState, useRef } from 'react';
 import Link from 'next/link';
-import { Navigation } from '@/components/navigation';
 import { WhereWeveGone } from '@/components/companies';
 import { ArrowRight, Users, Globe, Briefcase, Lightbulb } from 'lucide-react';
 
@@ -101,8 +100,6 @@ export default function HomePage() {
 
     return (
         <div className="min-h-screen bg-[#121212] text-white">
-            <Navigation />
-
             {/* Subtle grid pattern */}
             <div
                 className="fixed inset-0 pointer-events-none opacity-[0.03] z-0"
@@ -128,10 +125,6 @@ export default function HomePage() {
                                     ${heroReveal.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}
                                 `}
                             >
-                                {/* <div className="flex items-center gap-3 mb-6">
-                                    <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-                                </div> */}
-
                                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6">
                                     AI Student
                                     <br />
