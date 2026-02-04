@@ -36,21 +36,16 @@ export default function Testimonials() {
                     <Card className="glass-card">
                         <CardContent className="px-6">
                             <p className="text-muted-foreground mb-4 text-pretty">
-                                &quot;As someone from a non-technical
-                                background, I was intimidated by AI. This
-                                collective created such a welcoming environment
-                                that I was able to learn and contribute to
-                                projects despite my initial lack of
-                                experience.&quot;
+                                &quot;Being part of AISC has connected me with amazing people who quickly became friends and mentors. The environment is welcoming, supportive, and full of people who genuinely want to help each other grow both academically and professionally. AISC has continuously pushed me to grow as a designer, making me feel supported every step of the way.&quot;
                             </p>
                             <div className="flex items-center">
                                 <div className="w-10 h-10 bg-secondary rounded-full mr-3" />
                                 <div>
                                     <div className="font-medium">
-                                        Morgan Johnson
+                                        Tess Forstot
                                     </div>
                                     <div className="text-sm text-muted-foreground">
-                                        Cognitive Science, Class of 2024
+                                        Data Science, Class of 2028
                                     </div>
                                 </div>
                             </div>

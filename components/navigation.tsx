@@ -120,7 +120,7 @@ export function Navigation() {
                                                 </Link>
                                             </NavigationMenuLink>
 
-                                            {/* FORGE X EDUCATION */}
+                                            {/* FORGE X EDUCATION
                                             <NavigationMenuLink asChild>
                                                 <Link
                                                     href="/initiatives/#forge"
@@ -134,10 +134,10 @@ export function Navigation() {
                                                         community hackathons.
                                                     </p>
                                                 </Link>
-                                            </NavigationMenuLink>
+                                            </NavigationMenuLink> */}
 
                                             {/* UXR BLOCK */}
-                                            <NavigationMenuLink asChild>
+                                            {/* <NavigationMenuLink asChild>
                                                 <Link
                                                     href="/initiatives/#uxr"
                                                     className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-white/20 hover:text-white focus:bg-white/20 focus:text-white"
@@ -151,7 +151,7 @@ export function Navigation() {
                                                         functions.
                                                     </p>
                                                 </Link>
-                                            </NavigationMenuLink>
+                                            </NavigationMenuLink> */}
                                         </div>
                                     </NavigationMenuContent>
                                 </NavigationMenuItem>
@@ -240,16 +240,6 @@ export function Navigation() {
                                     </NavigationMenuLink>
                                 </NavigationMenuItem>
 
-                                <NavigationMenuItem>
-                                    <NavigationMenuLink asChild>
-                                        <Link
-                                            href="/events"
-                                            className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-transparent px-4 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-white/20 hover:text-white focus:bg-white/20 focus:text-white focus:outline-none disabled:pointer-events-none disabled:opacity-50"
-                                        >
-                                            Events
-                                        </Link>
-                                    </NavigationMenuLink>
-                                </NavigationMenuItem>
                             </NavigationMenuList>
                         </NavigationMenu>
 

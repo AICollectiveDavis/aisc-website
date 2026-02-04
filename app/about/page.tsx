@@ -1,61 +1,71 @@
-import type { Metadata } from 'next';
-import Image from 'next/image';
-// import Link from "next/link"
-import { PersonStanding, LibraryBig, Globe } from 'lucide-react';
+'use client';
 
-export const metadata: Metadata = {
-    title: 'About: AI Student Collective',
-    description:
-        'Learn about the AI Student Collective at UC Davis. Our mission, history, leadership team, and values.',
-};
+import Image from 'next/image';
+import Link from 'next/link';
+import { useRef, useEffect, useState } from 'react';
+import { PersonStanding, LibraryBig, Globe, ArrowRight } from 'lucide-react';
+
+function useScrollReveal() {
+    const ref = useRef<HTMLDivElement>(null);
+    const [isVisible, setIsVisible] = useState(false);
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if (entry.isIntersecting) setIsVisible(true);
+            },
+            { threshold: 0.1 }
+        );
+        if (ref.current) observer.observe(ref.current);
+        return () => observer.disconnect();
+    }, []);
+
+    return { ref, isVisible };
+}
+
+const values = [
+    {
+        title: 'Accessibility',
+        description: 'Promoting AI accessibility for all by breaking down the barriers to knowledge and opportunity.',
+        icon: PersonStanding,
+    },
+    {
+        title: 'Literacy',
+        description: 'Empowering students with enriching resources and experiences to shape the future.',
+        icon: LibraryBig,
+    },
+    {
+        title: 'Diversity',
+        description: 'Celebrating diversity in AI, fostering innovation through varied perspectives.',
+        icon: Globe,
+    },
+];
 
 export default function About() {
-    // Club values data with modern design
-    const values = [
-        {
-            title: 'Accessibility',
-            description:
-                'Promoting AI accessibility for all by breaking down the barriers to knowledge and opportunity.',
-            icon: <PersonStanding className="w-10 h-10" />,
-        },
-        {
-            title: 'Literacy',
-            description:
-                'Empowering students with enriching resources and experiences to shape the future.',
-            icon: <LibraryBig className="w-10 h-10" />,
-        },
-        {
-            title: 'Diversity',
-            description:
-                'Celebrating diversity in AI, fostering innovation through varied perspectives.',
-            icon: <Globe className="w-10 h-10" />,
-        },
-    ];
+    const missionReveal = useScrollReveal();
+    const valuesReveal = useScrollReveal();
+    const ctaReveal = useScrollReveal();
 
     return (
-        <main className="min-h-screen bg-background">
-            {/* Hero section */}
-            {/* <section className="py-20 bg-background relative overflow-hidden">
-        <div className="absolute inset-0 z-0 opacity-5">
-          <div className="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(68,68,68,.2)_50%,transparent_75%,transparent_100%)] bg-[length:250px_250px]"></div>
-        </div>
-        <div className="absolute top-0 left-0 w-1/3 h-1/3 bg-primary/10 rounded-full blur-[100px]"></div>
-        <div className="absolute bottom-0 right-0 w-1/3 h-1/3 bg-pink-400/10 rounded-full blur-[100px]"></div>
+        <main className="min-h-screen bg-[#121212]">
+            {/* Subtle grid pattern */}
+            <div
+                className="fixed inset-0 pointer-events-none opacity-[0.03] z-0"
+                style={{
+                    backgroundImage: `
+                        linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px),
+                        linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)
+                    `,
+                    backgroundSize: '60px 60px',
+                }}
+            />
 
-      </section> */}
-
-            {/* Photo Collage - Community Section */}
+            {/* Photo Collage Section - KEPT AS IS */}
             <section className="py-16 bg-muted/30 relative overflow-hidden">
                 <div className="absolute top-0 left-0 w-1/4 h-1/4 bg-primary/5 rounded-full blur-[80px]"></div>
                 <div className="absolute bottom-0 right-0 w-1/4 h-1/4 bg-pink-400/5 rounded-full blur-[80px]"></div>
 
                 <div className="container relative z-10 mx-auto px-4">
-                    {/* <div className="text-center mb-10">
-            <h2 className="text-3xl font-bold mb-4">Our Community</h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
-              A glimpse into our collaborative AI journey at UC Davis
-            </p>
-          </div> */}
                     <div className="container relative z-10 mx-auto px-4">
                         <div className="text-center max-w-3xl mx-auto">
                             <h1 className="text-4xl md:text-5xl font-bold my-6 text-balance">
@@ -121,15 +131,15 @@ export default function About() {
                             >
                                 <div className="relative aspect-square overflow-hidden rounded bg-muted">
                                     <Image
-                                        src="/pics/friendsgiving.JPG"
-                                        alt="Hackathon"
+                                        src="/pics/r&d.jpeg"
+                                        alt="R&D Team"
                                         width={250}
                                         height={250}
                                         className="w-full h-full object-cover"
                                     />
                                 </div>
                                 <p className="text-muted text-sm pt-2 px-1 font-medium">
-                                    Friendsgiving Potluck &#39;24
+                                    R&D winning Best Research Award at CSS Escape 2025!
                                 </p>
                             </div>
                         </div>
@@ -217,7 +227,7 @@ export default function About() {
                                     />
                                 </div>
                                 <p className="text-muted text-sm pt-2 px-1 font-medium">
-                                    Yosemite Winter Retreat
+                                    Yosemite Winter Retreat!
                                 </p>
                             </div>
                         </div>
@@ -246,46 +256,56 @@ export default function About() {
                 </div>
             </section>
 
-            {/* Mission section */}
-            <section className="py-16 bg-background">
-                <div className="container mx-auto px-4">
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
+            {/* Mission Section - Redesigned */}
+            <section className="py-16 relative z-10">
+                <div className="max-w-6xl mx-auto px-4">
+                    <div
+                        ref={missionReveal.ref}
+                        className={`
+                            grid md:grid-cols-2 gap-10 items-center
+                            transition-all duration-700
+                            ${missionReveal.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}
+                        `}
+                    >
                         <div>
-                            <h2 className="text-3xl font-bold mb-6">
+                            <div className="flex items-center gap-3 mb-4">
+                                <div className="h-px w-10 bg-gradient-to-r from-primary to-transparent" />
+                                <span className="text-xs tracking-[0.2em] uppercase text-white/40 font-medium">
+                                    Our Purpose
+                                </span>
+                            </div>
+
+                            <h2 className="text-3xl md:text-4xl font-bold mb-6 tracking-tight text-white">
                                 Our Mission
                             </h2>
-                            <div className="h-1 w-16 bg-primary mb-8"></div>
-                            <p className="text-muted-foreground mb-6">
-                                The Artificial Intelligence Student Collective
-                                (AISC) at UC Davis exists to foster a community
-                                of students passionate about artificial
-                                intelligence and its applications. We aim to
-                                bridge the gap between theoretical classroom
-                                learning and practical AI implementation.
-                            </p>
-                            <p className="text-muted-foreground mb-6">
-                                Through workshops, projects, hackathons, and
-                                industry connections, we provide students with
-                                the resources and support needed to thrive in
-                                the rapidly evolving field of AI. Our goal is to
-                                make AI education accessible to students from
-                                all disciplines and backgrounds.
-                            </p>
-                            <p className="text-muted-foreground">
-                                We believe in learning by doing, collaborating
-                                across disciplines, and exploring the ethical
-                                dimensions of AI technology.
-                            </p>
+
+                            <div className="space-y-4 text-white/60 text-sm leading-relaxed">
+                                <p>
+                                    The Artificial Intelligence Student Collective (AISC) at UC Davis exists to foster
+                                    a community of students passionate about artificial intelligence and its applications.
+                                    We aim to bridge the gap between theoretical classroom learning and practical AI implementation.
+                                </p>
+                                <p>
+                                    Through workshops, projects, hackathons, and industry connections, we provide students
+                                    with the resources and support needed to thrive in the rapidly evolving field of AI.
+                                    Our goal is to make AI education accessible to students from all disciplines and backgrounds.
+                                </p>
+                                <p>
+                                    We believe in learning by doing, collaborating across disciplines, and exploring the
+                                    ethical dimensions of AI technology.
+                                </p>
+                            </div>
                         </div>
+
                         <div className="relative">
-                            <div className="absolute -inset-1 rounded-xl bg-gradient-to-r from-primary to-pink-400 blur-sm opacity-50"></div>
-                            <div className="relative bg-card rounded-xl overflow-hidden aspect-video border">
+                            <div className="absolute -inset-2 rounded-2xl bg-gradient-to-r from-primary/30 to-secondary/30 blur-xl opacity-50"></div>
+                            <div className="relative rounded-2xl overflow-hidden border border-white/10">
                                 <Image
                                     src="/pics/aisc.jpg"
                                     alt="AISC members collaborating on a project"
                                     width={600}
-                                    height={600}
-                                    className="h-full w-full object-cover"
+                                    height={400}
+                                    className="w-full h-full object-cover"
                                 />
                             </div>
                         </div>
@@ -293,148 +313,87 @@ export default function About() {
                 </div>
             </section>
 
-            {/* History section */}
-            {/* <section className="py-16 bg-muted/30">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold mb-4">Our History</h2>
-            <p className="text-muted-foreground max-w-3xl mx-auto">
-              From a small study group to one of the largest tech clubs on campus
-            </p>
-          </div>
-
-          <div className="relative max-w-4xl mx-auto">
-            <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-border"></div>
-
-            <div className="space-y-12">
-              {[
-                {
-                  year: "2019",
-                  title: "The Beginning",
-                  description:
-                    "Founded by five Computer Science students as a casual study group focused on machine learning fundamentals",
-                  color: "primary",
-                },
-                {
-                  year: "2020",
-                  title: "Going Virtual",
-                  description:
-                    "Transitioned to virtual events during the pandemic, expanded our reach, and hosted our first virtual hackathon with 150+ participants",
-                  color: "pink",
-                },
-                {
-                  year: "2021",
-                  title: "Official Recognition",
-                  description:
-                    "Became an officially recognized student organization, partnered with the Computer Science department, and launched our first research initiatives",
-                  color: "primary",
-                },
-                {
-                  year: "2022",
-                  title: "Industry Connections",
-                  description:
-                    "Established partnerships with tech companies, secured sponsorships, and hosted our first AI career fair with representatives from leading tech firms",
-                  color: "pink",
-                },
-                {
-                  year: "2023",
-                  title: "Expanding Horizons",
-                  description:
-                    "Grew to over 300 active members from 20+ majors, launched specialized interest groups, and began collaborations with other UC campuses",
-                  color: "primary",
-                },
-                {
-                  year: "Today",
-                  title: "Thriving Community",
-                  description:
-                    "Now one of the largest and most active technical clubs on campus, with a diverse membership, numerous successful alumni, and a growing impact on campus AI culture",
-                  color: "pink",
-                },
-              ].map((item, index) => (
-                <div key={index} className="relative">
-                  <div
-                    className={`absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-4 h-4 rounded-full border-4 border-background ${item.color === "primary" ? "bg-primary" : "bg-pink-400"}`}
-                  ></div>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <div className={index % 2 === 0 ? "md:text-right md:pr-10" : "md:pr-10 md:order-2"}>
-                      <h3
-                        className={`text-xl font-bold mb-2 ${item.color === "primary" ? "text-primary" : "text-pink-400"}`}
-                      >
-                        {item.year}
-                      </h3>
-                      <h4 className="text-lg font-semibold mb-3">{item.title}</h4>
-                      <p className="text-muted-foreground">{item.description}</p>
-                    </div>
-                    <div className={index % 2 === 0 ? "md:pl-10" : "md:pl-10 md:order-1"}></div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section> */}
-
-            {/* Values Section */}
-            <section className="pb-16 bg-background">
-                <div className="container mx-auto px-4">
-                    <div className="text-center mb-12">
-                        <h2 className="text-3xl font-bold mb-4">Our Values</h2>
-                        <p className="text-muted-foreground max-w-3xl mx-auto">
-                            The principles that guide our club&#39;s activities
-                            and decisions
-                        </p>
-                    </div>
-
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-                        {values.map((value, index) => (
-                            <div
-                                key={index}
-                                className="bg-card p-6 rounded-2xl border hover:border-primary/20 transition-all duration-300 hover:shadow-lg group"
-                            >
-                                <div
-                                    className={`mb-6 p-4 rounded-xl inline-block ${
-                                        index % 2 === 0
-                                            ? 'bg-primary/10 text-primary'
-                                            : 'bg-pink-400/10 text-pink-400'
-                                    }`}
-                                >
-                                    {value.icon}
-                                </div>
-                                <h3 className="text-2xl font-bold mb-3 group-hover:text-primary transition-colors duration-300">
-                                    {value.title}
-                                </h3>
-                                <p className="text-muted-foreground text-lg">
-                                    {value.description}
-                                </p>
+            {/* Values Section - Redesigned */}
+            <section className="py-16 relative z-10">
+                <div className="max-w-6xl mx-auto px-4">
+                    <div
+                        ref={valuesReveal.ref}
+                        className={`
+                            transition-all duration-700
+                            ${valuesReveal.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}
+                        `}
+                    >
+                        <div className="text-center mb-10">
+                            <div className="flex items-center justify-center gap-3 mb-3">
+                                <div className="h-px w-10 bg-gradient-to-r from-transparent to-secondary" />
+                                <span className="text-xs tracking-[0.2em] uppercase text-white/40 font-medium">
+                                    What We Stand For
+                                </span>
+                                <div className="h-px w-10 bg-gradient-to-l from-transparent to-secondary" />
                             </div>
-                        ))}
+                            <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-white">
+                                Our Values
+                            </h2>
+                        </div>
+
+                        <div className="grid md:grid-cols-3 gap-4">
+                            {values.map((value, i) => (
+                                <div
+                                    key={i}
+                                    className={`
+                                        group p-6 rounded-xl border border-white/5 bg-white/[0.02]
+                                        hover:bg-white/[0.04] hover:border-white/10 transition-all duration-300
+                                        ${valuesReveal.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}
+                                    `}
+                                    style={{ transitionDelay: `${i * 100}ms` }}
+                                >
+                                    <div className={`
+                                        w-12 h-12 rounded-xl flex items-center justify-center mb-4
+                                        ${i % 2 === 0 ? 'bg-primary/10' : 'bg-secondary/10'}
+                                    `}>
+                                        <value.icon className={`w-6 h-6 ${i % 2 === 0 ? 'text-primary' : 'text-secondary'}`} />
+                                    </div>
+                                    <h3 className="text-xl font-semibold mb-2 text-white group-hover:text-primary transition-colors">
+                                        {value.title}
+                                    </h3>
+                                    <p className="text-white/50 text-sm leading-relaxed">
+                                        {value.description}
+                                    </p>
+                                </div>
+                            ))}
+                        </div>
                     </div>
                 </div>
             </section>
 
-            {/* Join call to action */}
-            {/* <section className="py-16 bg-muted/30">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl font-bold mb-6">Join Our Community</h2>
-            <p className="text-muted-foreground text-lg mb-8 max-w-2xl mx-auto">
-              Ready to be part of our story? Join the AI Student Club at UC Davis and connect with fellow AI
-              enthusiasts, learn cutting-edge skills, and build the future together.
-            </p>
-            <div className="flex flex-wrap justify-center gap-4">
-              <Link href="/join" className="btn-primary">
-                Become a Member
-              </Link>
-              <Link href="/team" className="btn-primary">
-                Meet Our Team
-              </Link>
-              <Link href="/contact" className="btn-outline">
-                Contact Us
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section> */}
+            {/* CTA Section */}
+            <section className="py-16 relative z-10 border-t border-white/5">
+                <div className="max-w-3xl mx-auto px-4 text-center">
+                    <div
+                        ref={ctaReveal.ref}
+                        className={`
+                            transition-all duration-700
+                            ${ctaReveal.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}
+                        `}
+                    >
+                        <h2 className="text-3xl md:text-4xl font-bold mb-4 tracking-tight text-white">
+                            Join Our Community
+                        </h2>
+                        <p className="text-base text-white/50 mb-8 max-w-md mx-auto">
+                            Ready to be part of our story? Connect with fellow AI enthusiasts,
+                            learn cutting-edge skills, and build the future together.
+                        </p>
+                        <div className="flex flex-wrap justify-center gap-3">
+                            <Link href="/join" className="gradient-btn">
+                                Become a Member
+                            </Link>
+                            <Link href="/teams" className="shine-btn">
+                                Meet Our Team
+                            </Link>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </main>
     );
 }

@@ -258,8 +258,7 @@ export default function Footer() {
                                     />
                                 </svg>
                                 <span className="text-white/70 text-base">
-                                    All Hands Meetings: Tuesdays, 7:30 PM, TLC
-                                    3215
+                                    All Hands Meetings: Wednesdays, 7:00 PM, Walker 1330
                                 </span>
                             </div>
                         </div>
