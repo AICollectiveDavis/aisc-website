@@ -519,12 +519,6 @@ export default function HomePage() {
                                 >
                                     Join AISC
                                 </Link>
-                                <Link
-                                    href="/contact"
-                                    className="shine-btn"
-                                >
-                                    Contact Us
-                                </Link>
                             </div>
                         </div>
                     </div>

@@ -250,8 +250,10 @@ export function Navigation() {
                             >
                                 About Us
                             </Link>
-                            <Button className="gradient-btn w-fit">
-                                Join Us
+                            <Button asChild className="gradient-btn w-fit">
+                                <Link href="/join">
+                                    Join Us
+                                </Link>
                             </Button>
                         </div>
                     </div>
