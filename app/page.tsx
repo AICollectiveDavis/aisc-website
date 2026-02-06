@@ -2,6 +2,7 @@
 
 import { useEffect, useState, useRef } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { WhereWeveGone } from '@/components/companies';
 import { ArrowRight, Users, Globe, Briefcase, Lightbulb } from 'lucide-react';
 
@@ -267,6 +268,27 @@ export default function HomePage() {
                 </div>
               </div>
                         </div>
+                    </div>
+                </section>
+
+                {/* Board Image Section */}
+                <section className="py-12 relative">
+                    <div className="max-w-5xl mx-auto px-4">
+                        <div className="relative overflow-hidden rounded-2xl shadow-2xl shadow-black/40">
+                            <Image
+                                src="/pics/aisc_board.jpg"
+                                alt="AISC Board"
+                                width={1200}
+                                height={675}
+                                className="w-full h-auto object-cover"
+                                priority
+                            />
+                            {/* Subtle gradient overlay for depth */}
+                            <div className="absolute inset-0 bg-gradient-to-t from-[#121212]/20 via-transparent to-transparent pointer-events-none" />
+                        </div>
+                        <p className="text-center text-white/40 text-sm tracking-wide mt-4">
+                            2025–26 Board Members
+                        </p>
                     </div>
                 </section>
 
