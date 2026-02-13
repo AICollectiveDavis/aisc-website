@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import { GeistMono } from 'geist/font/mono';
 import { Manrope } from 'next/font/google';
 import { Suspense } from 'react';
+import { Analytics } from '@vercel/analytics/next';
 import { Navigation } from '@/components/navigation';
 import Footer from '@/components/footer';
 import './globals.css';
@@ -32,6 +33,7 @@ export default function RootLayout({
                 <Navigation />
                 <Suspense fallback={null}>{children}</Suspense>
                 <Footer />
+                <Analytics />
             </body>
         </html>
     );
