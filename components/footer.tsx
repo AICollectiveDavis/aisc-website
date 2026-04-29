@@ -31,7 +31,7 @@ export default function Footer() {
               </a> */}
 
                             <a
-                                href="https://instagram.com/aiscdavis/"
+                                href="https://instagram.com/aicdavis/"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="h-10 w-10 bg-dark-300/50 rounded-full flex items-center justify-center text-white/80 hover:text-primary hover:bg-dark-300 transition-all duration-200 group"
@@ -52,7 +52,7 @@ export default function Footer() {
                             </a>
 
                             <a
-                                href="https://github.com/AIStudentCollective"
+                                href="https://github.com/AICollectiveDavis"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="h-10 w-10 bg-dark-300/50 rounded-full flex items-center justify-center text-white/80 hover:text-primary hover:bg-dark-300 transition-all duration-200 group"
@@ -73,7 +73,7 @@ export default function Footer() {
                             </a>
 
                             <a
-                                href="https://linkedin.com/company/ai-student-collective"
+                                href="https://linkedin.com/company/ai-collective-davis"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="h-10 w-10 bg-dark-300/50 rounded-full flex items-center justify-center text-white/80 hover:text-primary hover:bg-dark-300 transition-all duration-200 group"
