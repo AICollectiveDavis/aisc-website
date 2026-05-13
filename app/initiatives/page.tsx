@@ -1,57 +1,17 @@
 'use client';
 
 import Image from 'next/image';
+import Link from 'next/link';
 import { useRef, useEffect, useState } from 'react';
+import { initiatives, Initiative } from '@/lib/data/initiatives';
 
-const initiatives = [
-    {
-        id: 'bp',
-        title: 'Beginner Projects',
-        subtitle: 'Start Your Journey',
-        description:
-            'New to AI/ML? Start here with 6-week long group projects. Foundational learning and hands-on experience for all backgrounds.',
-        details: [
-            '6-week cycles with group mentorship',
-            'No experience required',
-            'Project-based learning with peers',
-            'Showcase at end of cycle',
-        ],
-        image: '/pics/bp_wq_showcase.JPG',
-        accent: 'cyan',
-    },
-    {
-        id: 'swe',
-        title: 'Software Engineering',
-        subtitle: 'Build Real Products',
-        description:
-            'Learn industry practices while developing a year-long project. Collaborate in teams, use GitHub, and ship real software.',
-        details: [
-            'Year-long technical projects',
-            'Agile, code reviews, and CI/CD',
-            'Portfolio and resume building',
-            'Present at club events',
-        ],
-        image: '/pics/bp_wq_showcase.JPG',
-        accent: 'pink',
-    },
-    {
-        id: 'research',
-        title: 'R&D',
-        subtitle: 'Push Boundaries',
-        description:
-            'Collaborate on cutting-edge AI research initiatives. Paper reading, faculty mentorship, and original research projects.',
-        details: [
-            'Paper reading groups',
-            'Faculty and grad student mentorship',
-            'Research methods training',
-            'Opportunities for publication',
-        ],
-        image: '/pics/r&d.jpeg',
-        accent: 'cyan',
-    },
-];
-
-function InitiativeCard({ initiative, index }: { initiative: typeof initiatives[0]; index: number }) {
+function InitiativeCard({
+    initiative,
+    index,
+}: {
+    initiative: Initiative;
+    index: number;
+}) {
     const cardRef = useRef<HTMLDivElement>(null);
     const [isVisible, setIsVisible] = useState(false);
 
@@ -62,7 +22,7 @@ function InitiativeCard({ initiative, index }: { initiative: typeof initiatives[
                     setIsVisible(true);
                 }
             },
-            { threshold: 0.15 }
+            { threshold: 0.15 },
         );
 
         if (cardRef.current) {
@@ -73,7 +33,8 @@ function InitiativeCard({ initiative, index }: { initiative: typeof initiatives[
     }, []);
 
     const isEven = index % 2 === 0;
-    const accentColor = initiative.accent === 'cyan' ? 'var(--primary)' : 'var(--secondary)';
+    const accentColor =
+        initiative.accent === 'blue' ? 'var(--primary)' : 'var(--secondary)';
 
     return (
         <div
@@ -95,7 +56,7 @@ function InitiativeCard({ initiative, index }: { initiative: typeof initiatives[
                 `}
                 style={{
                     color: 'transparent',
-                    WebkitTextStroke: `1px rgba(255,255,255,0.08)`,
+                    WebkitTextStroke: `1px rgba(18,35,56,0.1)`,
                     fontFamily: 'system-ui',
                 }}
             >
@@ -105,10 +66,10 @@ function InitiativeCard({ initiative, index }: { initiative: typeof initiatives[
             <div
                 className={`
                     relative z-10 flex flex-col ${isEven ? 'md:flex-row' : 'md:flex-row-reverse'}
-                    bg-[#1a1a1a]/60 backdrop-blur-sm
-                    border border-white/5 rounded-2xl overflow-hidden
+                    bg-white/68 backdrop-blur-sm
+                    border border-border/80 rounded-2xl overflow-hidden
                     transition-all duration-500
-                    hover:border-white/10 hover:bg-[#1a1a1a]/80
+                    hover:border-primary/20 hover:bg-white/82
                     group-hover:shadow-2xl
                 `}
                 style={{
@@ -128,9 +89,10 @@ function InitiativeCard({ initiative, index }: { initiative: typeof initiatives[
                     <div
                         className={`
                             absolute inset-0
-                            ${isEven
-                                ? 'bg-gradient-to-r from-transparent via-transparent to-[#1a1a1a]'
-                                : 'bg-gradient-to-l from-transparent via-transparent to-[#1a1a1a]'
+                            ${
+                                isEven
+                                    ? 'bg-gradient-to-r from-transparent via-transparent to-white'
+                                    : 'bg-gradient-to-l from-transparent via-transparent to-white'
                             }
                             opacity-60 md:opacity-100
                         `}
@@ -157,12 +119,12 @@ function InitiativeCard({ initiative, index }: { initiative: typeof initiatives[
                     </span>
 
                     {/* Title */}
-                    <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 tracking-tight">
+                    <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4 tracking-tight">
                         {initiative.title}
                     </h2>
 
                     {/* Description */}
-                    <p className="text-white/60 mb-6 leading-relaxed">
+                    <p className="text-muted-foreground mb-6 leading-relaxed">
                         {initiative.description}
                     </p>
 
@@ -171,7 +133,7 @@ function InitiativeCard({ initiative, index }: { initiative: typeof initiatives[
                         {initiative.details.map((detail, idx) => (
                             <div
                                 key={idx}
-                                className="flex items-start gap-2 text-sm text-white/50 group-hover:text-white/70 transition-colors duration-300"
+                                className="flex items-start gap-2 text-sm text-muted-foreground group-hover:text-foreground/80 transition-colors duration-300"
                             >
                                 <span
                                     className="w-1 h-1 rounded-full mt-2 flex-shrink-0"
@@ -192,8 +154,20 @@ function InitiativeCard({ initiative, index }: { initiative: typeof initiatives[
                         style={{ color: accentColor }}
                     >
                         <span>Explore program</span>
-                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="transition-transform group-hover:translate-x-1">
-                            <path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                        <svg
+                            width="16"
+                            height="16"
+                            viewBox="0 0 16 16"
+                            fill="none"
+                            className="transition-transform group-hover:translate-x-1"
+                        >
+                            <path
+                                d="M3 8H13M13 8L9 4M13 8L9 12"
+                                stroke="currentColor"
+                                strokeWidth="1.5"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                            />
                         </svg>
                     </div>
                 </div>
@@ -203,41 +177,35 @@ function InitiativeCard({ initiative, index }: { initiative: typeof initiatives[
 }
 
 export default function Initiatives() {
-    const [scrollY, setScrollY] = useState(0);
+    const pageRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
-        const handleScroll = () => setScrollY(window.scrollY);
+        const handleScroll = () => {
+            if (pageRef.current) {
+                pageRef.current.style.setProperty('--scroll-y', `${window.scrollY}px`);
+            }
+        };
         window.addEventListener('scroll', handleScroll, { passive: true });
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
     return (
-        <div className="min-h-screen bg-[#121212] relative overflow-hidden">
-            {/* Subtle grid pattern */}
-            <div
-                className="fixed inset-0 pointer-events-none opacity-[0.03]"
-                style={{
-                    backgroundImage: `
-                        linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px),
-                        linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)
-                    `,
-                    backgroundSize: '60px 60px',
-                }}
-            />
+        <div ref={pageRef} className="page-shell relative overflow-hidden">
+            <div className="page-grid fixed inset-0 pointer-events-none opacity-70" />
 
             {/* Floating accent shapes */}
             <div
                 className="fixed top-20 right-[10%] w-96 h-96 rounded-full pointer-events-none"
                 style={{
-                    background: 'radial-gradient(circle, rgba(14,165,233,0.08) 0%, transparent 70%)',
-                    transform: `translateY(${scrollY * 0.1}px)`,
+                    background: 'radial-gradient(circle, rgba(31,87,214,0.1) 0%, transparent 70%)',
+                    transform: 'translateY(calc(var(--scroll-y, 0px) * 0.1))',
                 }}
             />
             <div
                 className="fixed bottom-20 left-[5%] w-[500px] h-[500px] rounded-full pointer-events-none"
                 style={{
-                    background: 'radial-gradient(circle, rgba(249,168,212,0.06) 0%, transparent 70%)',
-                    transform: `translateY(${scrollY * -0.05}px)`,
+                    background: 'radial-gradient(circle, rgba(255,107,44,0.1) 0%, transparent 70%)',
+                    transform: 'translateY(calc(var(--scroll-y, 0px) * -0.05))',
                 }}
             />
 
@@ -247,15 +215,15 @@ export default function Initiatives() {
                     {/* Decorative line */}
                     <div className="flex items-center gap-4 mb-8">
                         <div className="h-px w-16 bg-gradient-to-r from-primary to-transparent" />
-                        <span className="text-xs tracking-[0.3em] uppercase text-white/40 font-medium">
+                        <span className="text-xs tracking-[0.3em] uppercase text-muted-foreground font-medium">
                             Programs & Verticals
                         </span>
                     </div>
 
-                    <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-6 tracking-tight">
+                    <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold text-foreground mb-6 tracking-tight">
                         Our
                         <br />
-                        <span className="relative inline-block">
+                        <span className="relative inline-block gradient-text">
                             Initiatives
                             {/* Underline accent */}
                             <svg
@@ -271,18 +239,31 @@ export default function Initiatives() {
                                     strokeLinecap="round"
                                 />
                                 <defs>
-                                    <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                                        <stop offset="0%" stopColor="var(--primary)" />
-                                        <stop offset="100%" stopColor="var(--secondary)" />
+                                    <linearGradient
+                                        id="gradient"
+                                        x1="0%"
+                                        y1="0%"
+                                        x2="100%"
+                                        y2="0%"
+                                    >
+                                        <stop
+                                            offset="0%"
+                                            stopColor="var(--primary)"
+                                        />
+                                        <stop
+                                            offset="100%"
+                                            stopColor="var(--secondary)"
+                                        />
                                     </linearGradient>
                                 </defs>
                             </svg>
                         </span>
                     </h1>
 
-                    <p className="text-lg md:text-xl text-white/50 max-w-2xl leading-relaxed">
-                        Discover our core programs designed to advance AI literacy,
-                        technical skills, and community. Find your path with AISC.
+                    <p className="text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed">
+                        Discover our core programs designed to advance AI
+                        literacy, technical skills, and community. Find your
+                        path with AI Collective.
                     </p>
                 </div>
             </header>
@@ -301,40 +282,37 @@ export default function Initiatives() {
             </main>
 
             {/* Bottom CTA */}
-            <section className="relative py-24 px-4 border-t border-white/5">
+            <section className="relative py-24 px-4 border-t border-border/70">
                 <div className="max-w-4xl mx-auto text-center">
-                    <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+                    <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
                         Ready to get involved?
                     </h2>
-                    <p className="text-white/50 mb-8 max-w-xl mx-auto">
-                        Join our community and start your journey in AI.
-                        No experience required—just curiosity and enthusiasm.
+                    <p className="text-muted-foreground mb-8 max-w-xl mx-auto">
+                        Join our community and start your journey in AI. No
+                        experience required—just curiosity and enthusiasm.
                     </p>
                     <div className="flex flex-wrap justify-center gap-4">
-                        <a
+                        <Link
                             href="/join"
-                            className="
-                                inline-flex items-center gap-2 px-8 py-4
-                                bg-white text-[#121212] font-semibold rounded-lg
-                                hover:bg-white/90 transition-all duration-300
-                                hover:shadow-[0_0_30px_rgba(255,255,255,0.2)]
-                            "
+                            className="inline-flex items-center gap-2 px-8 py-4 bg-foreground text-white font-semibold rounded-xl hover:bg-foreground/90 transition-all duration-300 hover:shadow-[0_18px_38px_rgba(31,87,214,0.18)]"
                         >
-                            Join AISC
+                            Join AI Collective
                             <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                                <path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                                <path
+                                    d="M3 8H13M13 8L9 4M13 8L9 12"
+                                    stroke="currentColor"
+                                    strokeWidth="2"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                />
                             </svg>
-                        </a>
-                        <a
+                        </Link>
+                        <Link
                             href="/calendar"
-                            className="
-                                inline-flex items-center gap-2 px-8 py-4
-                                border border-white/20 text-white font-semibold rounded-lg
-                                hover:border-white/40 hover:bg-white/5 transition-all duration-300
-                            "
+                            className="inline-flex items-center gap-2 px-8 py-4 border border-border bg-white/55 text-foreground font-semibold rounded-xl hover:border-primary/30 hover:bg-white/80 transition-all duration-300"
                         >
                             View Events
-                        </a>
+                        </Link>
                     </div>
                 </div>
             </section>
