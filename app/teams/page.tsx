@@ -11,7 +11,8 @@ export default function Team() {
                     Work in Progress
                 </h1>
                 <p className="text-muted-foreground text-base">
-                    We&apos;re building something great! Check back soon to meet the amazing team behind AISC @ Davis.
+                    We&apos;re building something great! Check back soon to meet
+                    the team behind AI Collective, UC Davis.
                 </p>
             </div>
         </div>

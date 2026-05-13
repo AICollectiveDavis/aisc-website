@@ -11,7 +11,8 @@ export default function Join() {
                     Work in Progress
                 </h1>
                 <p className="text-muted-foreground text-base">
-                    We&apos;re working on this page! Check back soon for information on how to join AISC @ Davis.
+                    We&apos;re working on this page! Check back soon for
+                    information on how to join AI Collective, UC Davis.
                 </p>
             </div>
         </div>
