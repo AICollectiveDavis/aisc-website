@@ -1,42 +1,27 @@
 'use client';
 
 import Image from 'next/image';
-import Link from 'next/link';
-import { useRef, useEffect, useState } from 'react';
-import { PersonStanding, LibraryBig, Globe, ArrowRight } from 'lucide-react';
-
-function useScrollReveal() {
-    const ref = useRef<HTMLDivElement>(null);
-    const [isVisible, setIsVisible] = useState(false);
-
-    useEffect(() => {
-        const observer = new IntersectionObserver(
-            ([entry]) => {
-                if (entry.isIntersecting) setIsVisible(true);
-            },
-            { threshold: 0.1 }
-        );
-        if (ref.current) observer.observe(ref.current);
-        return () => observer.disconnect();
-    }, []);
-
-    return { ref, isVisible };
-}
+import { PersonStanding, LibraryBig, Globe } from 'lucide-react';
+import { useScrollReveal } from '@/hooks/use-scroll-reveal';
+import { CTASection } from '@/components/cta';
 
 const values = [
     {
         title: 'Accessibility',
-        description: 'Promoting AI accessibility for all by breaking down the barriers to knowledge and opportunity.',
+        description:
+            'Promoting AI accessibility for all by breaking down the barriers to knowledge and opportunity.',
         icon: PersonStanding,
     },
     {
         title: 'Literacy',
-        description: 'Empowering students with enriching resources and experiences to shape the future.',
+        description:
+            'Empowering students with enriching resources and experiences to shape the future.',
         icon: LibraryBig,
     },
     {
         title: 'Diversity',
-        description: 'Celebrating diversity in AI, fostering innovation through varied perspectives.',
+        description:
+            'Celebrating diversity in AI, fostering innovation through varied perspectives.',
         icon: Globe,
     },
 ];
@@ -44,30 +29,18 @@ const values = [
 export default function About() {
     const missionReveal = useScrollReveal();
     const valuesReveal = useScrollReveal();
-    const ctaReveal = useScrollReveal();
 
     return (
-        <main className="min-h-screen bg-[#121212]">
-            {/* Subtle grid pattern */}
-            <div
-                className="fixed inset-0 pointer-events-none opacity-[0.03] z-0"
-                style={{
-                    backgroundImage: `
-                        linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px),
-                        linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)
-                    `,
-                    backgroundSize: '60px 60px',
-                }}
-            />
+        <main className="page-shell">
+            <div className="page-grid fixed inset-0 pointer-events-none opacity-70 z-0" />
 
             {/* Photo Collage Section - KEPT AS IS */}
-            <section className="py-16 bg-muted/30 relative overflow-hidden">
+            <section className="py-16 bg-white/40 relative overflow-hidden">
                 <div className="absolute top-0 left-0 w-1/4 h-1/4 bg-primary/5 rounded-full blur-[80px]"></div>
-                <div className="absolute bottom-0 right-0 w-1/4 h-1/4 bg-pink-400/5 rounded-full blur-[80px]"></div>
+                <div className="absolute bottom-0 right-0 w-1/4 h-1/4 bg-secondary/10 rounded-full blur-[80px]"></div>
 
                 <div className="container relative z-10 mx-auto px-4">
-                    <div className="container relative z-10 mx-auto px-4">
-                        <div className="text-center max-w-3xl mx-auto">
+                    <div className="text-center max-w-3xl mx-auto">
                             <h1 className="text-4xl md:text-5xl font-bold my-6 text-balance">
                                 About Our Club
                             </h1>
@@ -75,7 +48,6 @@ export default function About() {
                                 Building the next generation of AI leaders and
                                 innovators at UC Davis
                             </p>
-                        </div>
                     </div>
 
                     <div className="relative h-[600px] md:h-[700px] max-w-6xl mx-auto mt-8">
@@ -90,7 +62,7 @@ export default function About() {
                                 <div className="relative aspect-video overflow-hidden rounded bg-muted">
                                     <Image
                                         src="/pics/grad_25.jpg"
-                                        alt="AISC Team Photo"
+                                        alt="AI Collective team photo"
                                         width={500}
                                         height={300}
                                         className="w-full h-full object-cover"
@@ -139,7 +111,8 @@ export default function About() {
                                     />
                                 </div>
                                 <p className="text-muted text-sm pt-2 px-1 font-medium">
-                                    R&D winning Best Research Award at CSS Escape 2025!
+                                    R&D winning Best Research Award at CSS
+                                    Escape 2025!
                                 </p>
                             </div>
                         </div>
@@ -248,7 +221,7 @@ export default function About() {
                                     />
                                 </div>
                                 <p className="text-muted text-sm pt-2 px-1 font-medium">
-                                    A-I-S-C
+                                    AI Collective
                                 </p>
                             </div>
                         </div>
@@ -270,39 +243,48 @@ export default function About() {
                         <div>
                             <div className="flex items-center gap-3 mb-4">
                                 <div className="h-px w-10 bg-gradient-to-r from-primary to-transparent" />
-                                <span className="text-xs tracking-[0.2em] uppercase text-white/40 font-medium">
+                                <span className="text-xs tracking-[0.2em] uppercase text-muted-foreground font-medium">
                                     Our Purpose
                                 </span>
                             </div>
 
-                            <h2 className="text-3xl md:text-4xl font-bold mb-6 tracking-tight text-white">
+                            <h2 className="text-3xl md:text-4xl font-bold mb-6 tracking-tight text-foreground">
                                 Our Mission
                             </h2>
 
-                            <div className="space-y-4 text-white/60 text-sm leading-relaxed">
+                            <div className="space-y-4 text-muted-foreground text-sm leading-relaxed">
                                 <p>
-                                    The Artificial Intelligence Student Collective (AISC) at UC Davis exists to foster
-                                    a community of students passionate about artificial intelligence and its applications.
-                                    We aim to bridge the gap between theoretical classroom learning and practical AI implementation.
+                                    AI Collective, UC Davis exists to foster a
+                                    community of students passionate about
+                                    artificial intelligence and its
+                                    applications. We aim to bridge the gap
+                                    between theoretical classroom learning and
+                                    practical AI implementation.
                                 </p>
                                 <p>
-                                    Through workshops, projects, hackathons, and industry connections, we provide students
-                                    with the resources and support needed to thrive in the rapidly evolving field of AI.
-                                    Our goal is to make AI education accessible to students from all disciplines and backgrounds.
+                                    Through workshops, projects, hackathons, and
+                                    industry connections, we provide students
+                                    with the resources and support needed to
+                                    thrive in the rapidly evolving field of AI.
+                                    Our goal is to make AI education accessible
+                                    to students from all disciplines and
+                                    backgrounds.
                                 </p>
                                 <p>
-                                    We believe in learning by doing, collaborating across disciplines, and exploring the
-                                    ethical dimensions of AI technology.
+                                    We believe in learning by doing,
+                                    collaborating across disciplines, and
+                                    exploring the ethical dimensions of AI
+                                    technology.
                                 </p>
                             </div>
                         </div>
 
                         <div className="relative">
                             <div className="absolute -inset-2 rounded-2xl bg-gradient-to-r from-primary/30 to-secondary/30 blur-xl opacity-50"></div>
-                            <div className="relative rounded-2xl overflow-hidden border border-white/10">
+                            <div className="relative rounded-2xl overflow-hidden border border-border/80">
                                 <Image
                                     src="/pics/aisc.jpg"
-                                    alt="AISC members collaborating on a project"
+                                    alt="AI Collective members collaborating on a project"
                                     width={600}
                                     height={400}
                                     className="w-full h-full object-cover"
@@ -326,12 +308,12 @@ export default function About() {
                         <div className="text-center mb-10">
                             <div className="flex items-center justify-center gap-3 mb-3">
                                 <div className="h-px w-10 bg-gradient-to-r from-transparent to-secondary" />
-                                <span className="text-xs tracking-[0.2em] uppercase text-white/40 font-medium">
+                                <span className="text-xs tracking-[0.2em] uppercase text-muted-foreground font-medium">
                                     What We Stand For
                                 </span>
                                 <div className="h-px w-10 bg-gradient-to-l from-transparent to-secondary" />
                             </div>
-                            <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-white">
+                            <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-foreground">
                                 Our Values
                             </h2>
                         </div>
@@ -341,22 +323,26 @@ export default function About() {
                                 <div
                                     key={i}
                                     className={`
-                                        group p-6 rounded-xl border border-white/5 bg-white/[0.02]
-                                        hover:bg-white/[0.04] hover:border-white/10 transition-all duration-300
+                                        group section-panel p-6 rounded-2xl
+                                        hover:bg-white/82 hover:border-primary/15 transition-all duration-300
                                         ${valuesReveal.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}
                                     `}
                                     style={{ transitionDelay: `${i * 100}ms` }}
                                 >
-                                    <div className={`
+                                    <div
+                                        className={`
                                         w-12 h-12 rounded-xl flex items-center justify-center mb-4
                                         ${i % 2 === 0 ? 'bg-primary/10' : 'bg-secondary/10'}
-                                    `}>
-                                        <value.icon className={`w-6 h-6 ${i % 2 === 0 ? 'text-primary' : 'text-secondary'}`} />
+                                    `}
+                                    >
+                                        <value.icon
+                                            className={`w-6 h-6 ${i % 2 === 0 ? 'text-primary' : 'text-secondary'}`}
+                                        />
                                     </div>
-                                    <h3 className="text-xl font-semibold mb-2 text-white group-hover:text-primary transition-colors">
+                                    <h3 className="text-xl font-semibold mb-2 text-foreground group-hover:text-primary transition-colors">
                                         {value.title}
                                     </h3>
-                                    <p className="text-white/50 text-sm leading-relaxed">
+                                    <p className="text-muted-foreground text-sm leading-relaxed">
                                         {value.description}
                                     </p>
                                 </div>
@@ -366,34 +352,14 @@ export default function About() {
                 </div>
             </section>
 
-            {/* CTA Section */}
-            <section className="py-16 relative z-10 border-t border-white/5">
-                <div className="max-w-3xl mx-auto px-4 text-center">
-                    <div
-                        ref={ctaReveal.ref}
-                        className={`
-                            transition-all duration-700
-                            ${ctaReveal.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}
-                        `}
-                    >
-                        <h2 className="text-3xl md:text-4xl font-bold mb-4 tracking-tight text-white">
-                            Join Our Community
-                        </h2>
-                        <p className="text-base text-white/50 mb-8 max-w-md mx-auto">
-                            Ready to be part of our story? Connect with fellow AI enthusiasts,
-                            learn cutting-edge skills, and build the future together.
-                        </p>
-                        <div className="flex flex-wrap justify-center gap-3">
-                            <Link href="/join" className="gradient-btn">
-                                Become a Member
-                            </Link>
-                            <Link href="/teams" className="shine-btn">
-                                Meet Our Team
-                            </Link>
-                        </div>
-                    </div>
-                </div>
-            </section>
+            <CTASection
+                title="Join Our Community"
+                body="Ready to be part of our story? Connect with fellow AI enthusiasts, learn cutting-edge skills, and build the future together."
+                primaryHref="/join"
+                primaryLabel="Become a Member"
+                secondaryHref="/teams"
+                secondaryLabel="Meet Our Team"
+            />
         </main>
     );
 }
