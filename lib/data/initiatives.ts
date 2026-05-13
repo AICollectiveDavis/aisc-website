@@ -66,5 +66,5 @@ export const initiativePreviews: InitiativePreview[] = [
     { title: 'Beginner Projects', desc: '6-week group projects for newcomers', href: '/initiatives#bp' },
     { title: 'Software Engineering', desc: 'Year-long technical projects', href: '/initiatives#swe' },
     { title: 'R&D', desc: 'Cutting-edge AI research', href: '/initiatives#research' },
-    { title: 'Forge', desc: 'Community hackathons', href: '/initiatives#forge' },
+    { title: 'Events', desc: 'Workshops, socials, and more', href: '/calendar' },
 ];
