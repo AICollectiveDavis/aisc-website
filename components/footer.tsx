@@ -1,40 +1,51 @@
 'use client';
 
 import Link from 'next/link';
+import { ReactNode } from 'react';
+
+function FooterLink({ href, children }: { href: string; children: ReactNode }) {
+    return (
+        <Link
+            href={href}
+            className="text-base text-muted-foreground hover:text-primary transition-all duration-200 flex items-center"
+        >
+            <svg className="h-4 w-4 mr-2 text-primary/70" viewBox="0 0 20 20" fill="currentColor">
+                <path
+                    fillRule="evenodd"
+                    d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z"
+                    clipRule="evenodd"
+                />
+            </svg>
+            {children}
+        </Link>
+    );
+}
 
 export default function Footer() {
     const currentYear = new Date().getFullYear();
     return (
-        <footer className="bg-dark-400 py-16 border-t border-white/5">
+        <footer className="relative overflow-hidden border-t border-border/70 bg-white/70 py-8 backdrop-blur-sm">
+            <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
             <div className="container mx-auto px-4 md:px-6">
                 <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
                     {/* About */}
                     <div className="md:col-span-5">
-                        <h3 className="text-white text-lg font-semibold mb-4">
-                            AI Student Collective
+                        <h3 className="text-foreground text-lg font-semibold mb-4">
+                            AI Collective, UC Davis
                         </h3>
-                        <p className="text-white/70 max-w-lg text-base">
-                            A global network of student organizations dedicated
-                            to making AI literacy accessible for everyone.
-                            Through pre-professional programs, hands-on events,
-                            and industry connections, we&#39;re building a more
-                            informed, diverse, and equitable future in AI.
+                        <p className="text-muted-foreground max-w-lg text-base">
+                            The AI Collective, UC Davis is part of a global non-profit building the human layer for the AI era.
+                            We unite 200,000+ leaders, builders, and stakeholders across 150+ chapters worldwide to
+                            democratize the frontier, build trust, and coordinate how society navigates the rapid
+                            acceleration of technological progress.
                         </p>
                         {/* Social Links */}
                         <div className="flex space-x-4 mt-6">
-                            {/* <a href="https://twitter.com/aistudentclub" target="_blank" rel="noopener noreferrer" 
-                className="h-10 w-10 bg-dark-300/50 rounded-full flex items-center justify-center text-white/80 hover:text-primary hover:bg-dark-300 transition-all duration-200 group">
-                <span className="sr-only">Twitter</span>
-                <svg className="h-5 w-5 group-hover:scale-110 transition-transform duration-200" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84" />
-                </svg>
-              </a> */}
-
                             <a
-                                href="https://instagram.com/aiscdavis/"
+                                href="https://instagram.com/aicdavis/"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="h-10 w-10 bg-dark-300/50 rounded-full flex items-center justify-center text-white/80 hover:text-primary hover:bg-dark-300 transition-all duration-200 group"
+                                className="h-10 w-10 rounded-full border border-border/80 bg-white/70 flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary/30 hover:bg-primary/5 transition-all duration-200 group"
                             >
                                 <span className="sr-only">Instagram</span>
                                 <svg
@@ -52,10 +63,10 @@ export default function Footer() {
                             </a>
 
                             <a
-                                href="https://github.com/AIStudentCollective"
+                                href="https://github.com/AICollectiveDavis"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="h-10 w-10 bg-dark-300/50 rounded-full flex items-center justify-center text-white/80 hover:text-primary hover:bg-dark-300 transition-all duration-200 group"
+                                className="h-10 w-10 rounded-full border border-border/80 bg-white/70 flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary/30 hover:bg-primary/5 transition-all duration-200 group"
                             >
                                 <span className="sr-only">GitHub</span>
                                 <svg
@@ -73,10 +84,10 @@ export default function Footer() {
                             </a>
 
                             <a
-                                href="https://linkedin.com/company/ai-student-collective"
+                                href="https://linkedin.com/company/ai-collective-davis"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="h-10 w-10 bg-dark-300/50 rounded-full flex items-center justify-center text-white/80 hover:text-primary hover:bg-dark-300 transition-all duration-200 group"
+                                className="h-10 w-10 rounded-full border border-border/80 bg-white/70 flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary/30 hover:bg-primary/5 transition-all duration-200 group"
                             >
                                 <span className="sr-only">LinkedIn</span>
                                 <svg
@@ -93,110 +104,23 @@ export default function Footer() {
 
                     {/* Quick Links */}
                     <div className="md:col-span-3">
-                        <h3 className="text-white text-lg font-semibold mb-4">
+                        <h3 className="text-foreground text-lg font-semibold mb-4">
                             Quick Links
                         </h3>
                         <ul className="space-y-3">
-                            <li>
-                                <Link
-                                    href="/initiatives"
-                                    className="text-base text-white/70 hover:text-primary transition-all duration-200 flex items-center"
-                                >
-                                    <svg
-                                        className="h-4 w-4 mr-2 text-primary/70"
-                                        viewBox="0 0 20 20"
-                                        fill="currentColor"
-                                    >
-                                        <path
-                                            fillRule="evenodd"
-                                            d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z"
-                                            clipRule="evenodd"
-                                        />
-                                    </svg>
-                                    Initiatives
-                                </Link>
-                            </li>
-                            <li>
-                                <Link
-                                    href="/teams"
-                                    className="text-base text-white/70 hover:text-primary transition-all duration-200 flex items-center"
-                                >
-                                    <svg
-                                        className="h-4 w-4 mr-2 text-primary/70"
-                                        viewBox="0 0 20 20"
-                                        fill="currentColor"
-                                    >
-                                        <path
-                                            fillRule="evenodd"
-                                            d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z"
-                                            clipRule="evenodd"
-                                        />
-                                    </svg>
-                                    Teams
-                                </Link>
-                            </li>
-                            <li>
-                                <Link
-                                    href="/about"
-                                    className="text-base text-white/70 hover:text-primary transition-all duration-200 flex items-center"
-                                >
-                                    <svg
-                                        className="h-4 w-4 mr-2 text-primary/70"
-                                        viewBox="0 0 20 20"
-                                        fill="currentColor"
-                                    >
-                                        <path
-                                            fillRule="evenodd"
-                                            d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z"
-                                            clipRule="evenodd"
-                                        />
-                                    </svg>
-                                    About Us
-                                </Link>
-                            </li>
-                            <li>
-                                <Link
-                                    href="/join"
-                                    className="text-base text-white/70 hover:text-primary transition-all duration-200 flex items-center"
-                                >
-                                    <svg
-                                        className="h-4 w-4 mr-2 text-primary/70"
-                                        viewBox="0 0 20 20"
-                                        fill="currentColor"
-                                    >
-                                        <path
-                                            fillRule="evenodd"
-                                            d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z"
-                                            clipRule="evenodd"
-                                        />
-                                    </svg>
-                                    Join
-                                </Link>
-                            </li>
-                            {/* <li>
-                <Link
-                  href="/contact"
-                  className="text-base text-white/70 hover:text-primary transition-all duration-200 flex items-center"
-                >
-                  <svg className="h-4 w-4 mr-2 text-primary/70" viewBox="0 0 20 20" fill="currentColor">
-                    <path
-                      fillRule="evenodd"
-                      d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
-                  Contact
-                </Link>
-              </li> */}
+                            <li><FooterLink href="/initiatives">Initiatives</FooterLink></li>
+                            <li><FooterLink href="/teams">Teams</FooterLink></li>
+                            <li><FooterLink href="/about">About Us</FooterLink></li>
+                            <li><FooterLink href="/join">Join</FooterLink></li>
                         </ul>
                     </div>
 
                     {/* Contact Info */}
                     <div className="md:col-span-4">
-                        <h3 className="text-white text-lg font-semibold mb-4">
+                        <h3 className="text-foreground text-lg font-semibold mb-4">
                             Contact Us
                         </h3>
-                        <div className="space-y-4 bg-dark-300/30 p-5 rounded-lg border border-white/5">
+                        <div className="space-y-4 rounded-2xl border border-border/80 bg-white/75 p-5 shadow-[0_18px_40px_rgba(18,35,56,0.05)]">
                             <div className="flex items-start">
                                 <svg
                                     className="h-6 w-6 text-primary flex-shrink-0 mr-3"
@@ -211,8 +135,8 @@ export default function Footer() {
                                         d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
                                     />
                                 </svg>
-                                <span className="text-white/70 text-base">
-                                    aistudentcollective@gmail.com
+                                <span className="text-muted-foreground text-base">
+                                    aicollectivedavis@gmail.com
                                 </span>
                             </div>
                             <div className="flex items-start">
@@ -235,7 +159,7 @@ export default function Footer() {
                                         d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
                                     />
                                 </svg>
-                                <span className="text-white/70 text-base">
+                                <span className="text-muted-foreground text-base">
                                     University of California, Davis
                                     <br />
                                     One Shields Avenue
@@ -257,8 +181,9 @@ export default function Footer() {
                                         d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
                                     />
                                 </svg>
-                                <span className="text-white/70 text-base">
-                                    All Hands Meetings: Wednesdays, 7:00 PM, Walker 1330
+                                <span className="text-muted-foreground text-base">
+                                    All Hands Meetings: Wednesdays, 7:00 PM,
+                                    Walker 1330
                                 </span>
                             </div>
                         </div>
@@ -266,12 +191,12 @@ export default function Footer() {
                 </div>
 
                 {/* Copyright */}
-                <div className="border-t border-white/10 mt-12 pt-6 text-center md:flex md:justify-between md:items-center">
-                    <p className="text-white/50 text-sm">
-                        © {currentYear} AI Student Collective. All rights
+                <div className="border-t border-border/80 mt-12 pt-6 text-center md:flex md:justify-between md:items-center">
+                    <p className="text-muted-foreground text-sm">
+                        © {currentYear} AI Collective, UC Davis. All rights
                         reserved.
                     </p>
-                    <p className="text-white/50 text-sm mt-2 md:mt-0">
+                    <p className="text-muted-foreground text-sm mt-2 md:mt-0">
                         Made with ❤️ by Member Dev
                     </p>
                 </div>

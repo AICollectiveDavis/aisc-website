@@ -1,19 +1,7 @@
-import { Construction } from 'lucide-react';
+import { ComingSoon } from '@/components/coming-soon';
 
 export default function Team() {
     return (
-        <div className="min-h-screen bg-background flex items-center justify-center">
-            <div className="text-center max-w-xl mx-auto px-4">
-                <div className="flex justify-center mb-4">
-                    <Construction className="w-10 h-10 text-primary" />
-                </div>
-                <h1 className="text-2xl md:text-3xl font-bold mb-3 text-foreground">
-                    Work in Progress
-                </h1>
-                <p className="text-muted-foreground text-base">
-                    We&apos;re building something great! Check back soon to meet the amazing team behind AISC @ Davis.
-                </p>
-            </div>
-        </div>
+        <ComingSoon message="We're building something great! Check back soon to meet the team behind AI Collective, UC Davis." />
     );
 }

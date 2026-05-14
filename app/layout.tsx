@@ -16,7 +16,7 @@ const manrope = Manrope({
 });
 
 export const metadata: Metadata = {
-    title: 'AI Student Collective | UC Davis',
+    title: 'AI Collective, UC Davis',
     description: 'AI literacy for all.',
 };
 
@@ -26,10 +26,11 @@ export default function RootLayout({
     children: React.ReactNode;
 }>) {
     return (
-        <html lang="en" className="dark">
+        <html lang="en">
             <body
                 className={`font-sans ${manrope.variable} ${GeistMono.variable} antialiased`}
             >
+                <div className="page-grid fixed inset-0 pointer-events-none opacity-50 z-0" />
                 <Navigation />
                 <Suspense fallback={null}>{children}</Suspense>
                 <Footer />

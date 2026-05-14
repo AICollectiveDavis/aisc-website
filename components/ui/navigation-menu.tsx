@@ -1,3 +1,5 @@
+'use client';
+
 import * as React from 'react';
 import * as NavigationMenuPrimitive from '@radix-ui/react-navigation-menu';
 import { cva } from 'class-variance-authority';
@@ -13,8 +15,22 @@ function NavigationMenu({
 }: React.ComponentProps<typeof NavigationMenuPrimitive.Root> & {
     viewport?: boolean;
 }) {
+    const rootRef = React.useRef<HTMLElement>(null);
+
+    React.useLayoutEffect(() => {
+        const el = rootRef.current;
+        if (!el) return;
+        const update = () => {
+            el.style.setProperty('--nav-left', `${el.getBoundingClientRect().left}px`);
+        };
+        update();
+        window.addEventListener('resize', update);
+        return () => window.removeEventListener('resize', update);
+    }, []);
+
     return (
         <NavigationMenuPrimitive.Root
+            ref={rootRef}
             data-slot="navigation-menu"
             data-viewport={viewport}
             className={cn(
@@ -59,7 +75,7 @@ function NavigationMenuItem({
 }
 
 const navigationMenuTriggerStyle = cva(
-    'group inline-flex h-9 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium hover:bg-white/20 hover:text-white focus:bg-white/20 focus:text-white disabled:pointer-events-none disabled:opacity-50 data-[state=open]:hover:bg-white/20 data-[state=open]:text-white data-[state=open]:focus:bg-white/20 data-[state=open]:bg-white/20 focus-visible:ring-ring/50 outline-none transition-[color,box-shadow] focus-visible:ring-[3px] focus-visible:outline-1',
+    'group inline-flex h-9 w-max items-center justify-center rounded-md bg-background/70 px-4 py-2 text-sm font-medium text-foreground hover:bg-accent hover:text-foreground focus:bg-accent focus:text-foreground disabled:pointer-events-none disabled:opacity-50 data-[state=open]:hover:bg-accent data-[state=open]:text-foreground data-[state=open]:focus:bg-accent data-[state=open]:bg-accent focus-visible:ring-ring/50 outline-none transition-[color,box-shadow] focus-visible:ring-[3px] focus-visible:outline-1',
 );
 
 function NavigationMenuTrigger({
@@ -105,14 +121,13 @@ function NavigationMenuViewport({
 }: React.ComponentProps<typeof NavigationMenuPrimitive.Viewport>) {
     return (
         <div
-            className={cn(
-                'absolute top-full left-0 isolate z-50 flex justify-center',
-            )}
+            className="fixed top-16 z-50 pointer-events-none"
+            style={{ left: 'var(--nav-left, 0px)', maxWidth: 'calc(100vw - var(--nav-left, 0px))' }}
         >
             <NavigationMenuPrimitive.Viewport
                 data-slot="navigation-menu-viewport"
                 className={cn(
-                    'origin-top-center bg-popover text-popover-foreground data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-90 relative mt-1.5 h-[var(--radix-navigation-menu-viewport-height)] w-full overflow-hidden rounded-md border shadow md:w-[var(--radix-navigation-menu-viewport-width)]',
+                    'origin-top-center bg-popover text-popover-foreground data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-90 relative mt-1.5 h-[var(--radix-navigation-menu-viewport-height)] w-full overflow-hidden rounded-md border shadow md:w-[var(--radix-navigation-menu-viewport-width)] pointer-events-auto',
                     className,
                 )}
                 {...props}
@@ -129,7 +144,7 @@ function NavigationMenuLink({
         <NavigationMenuPrimitive.Link
             data-slot="navigation-menu-link"
             className={cn(
-                "data-[active=true]:focus:bg-white/20 data-[active=true]:hover:bg-white/20 data-[active=true]:bg-white/20 data-[active=true]:text-white hover:bg-white/20 hover:text-white focus:bg-white/20 focus:text-white focus-visible:ring-ring/50 [&_svg:not([class*='text-'])]:text-muted-foreground flex flex-col gap-1 rounded-sm p-2 text-sm transition-all outline-none focus-visible:ring-[3px] focus-visible:outline-1 [&_svg:not([class*='size-'])]:size-4",
+                "data-[active=true]:focus:bg-accent data-[active=true]:hover:bg-accent data-[active=true]:bg-accent data-[active=true]:text-foreground hover:bg-accent hover:text-foreground focus:bg-accent focus:text-foreground focus-visible:ring-ring/50 [&_svg:not([class*='text-'])]:text-muted-foreground flex flex-col gap-1 rounded-sm p-2 text-sm transition-all outline-none focus-visible:ring-[3px] focus-visible:outline-1 [&_svg:not([class*='size-'])]:size-4",
                 className,
             )}
             {...props}

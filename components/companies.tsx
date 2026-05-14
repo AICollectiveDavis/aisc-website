@@ -1,33 +1,7 @@
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
-
-const techCompanies = [
-    { name: 'Amazon', logo: '/logos/amazon.svg' },
-    { name: 'Microsoft', logo: '/logos/microsoft-cropped.svg' },
-    { name: 'Apple', logo: '/logos/apple.svg' },
-    { name: 'Google', logo: '/logos/google.svg' },
-    { name: 'AMD', logo: '/logos/amd.svg' },
-    { name: 'LinkedIn', logo: '/logos/linkedin.svg' },
-    { name: 'Visa', logo: '/logos/visa-cropped.svg' },
-    { name: 'IBM', logo: '/logos/IBM.svg' },
-    { name: 'Tesla', logo: '/logos/tesla.png'},
-    { name: 'Salesforce', logo: '/logos/salesforce.svg' },
-    { name: 'CME Group', logo: '/logos/cme.svg' },
-    { name: 'Mercedes-Benz', logo: '/logos/benz.svg' },
-    { name: 'CVS', logo: '/logos/cvs.svg' },
-    { name: 'Marvell Technology', logo: '/logos/marvell.svg' },
-    { name: 'Oracle', logo: '/logos/oracle-cropped.svg' },
-    { name: 'Hewlett-Packard Enterprise', logo: '/logos/hpe.svg' },
-    { name: 'Siemens', logo: '/logos/siemens-cropped.svg' },
-    { name: 'Walmart', logo: '/logos/walmart.svg' },
-    { name: 'Freewheel', logo: '/logos/freewheel.svg' },
-    { name: 'Keysight Technologies', logo: '/logos/keysight.svg' },
-    { name: 'Blackhawk Network', logo: '/logos/bhn.svg' },
-    { name: 'Kaiser Permanenente', logo: '/logos/kp.svg' },
-    { name: 'Veeco', logo: '/logos/veeco.svg' },
-    { name: 'Deloitte.', logo: '/logos/deloitte.svg' },
-];
+import { companies } from '@/lib/data/companies';
 
 export function WhereWeveGone() {
     const [imagesLoaded, setImagesLoaded] = useState(false);
@@ -37,10 +11,10 @@ export function WhereWeveGone() {
     const [startX, setStartX] = useState(0);
     const [scrollLeft, setScrollLeft] = useState(0);
 
-    const duplicatedLogos = [...techCompanies, ...techCompanies, ...techCompanies];
+    const duplicatedLogos = [...companies, ...companies, ...companies];
 
     useEffect(() => {
-        const imagePromises = techCompanies.map((company) => {
+        const imagePromises = companies.map((company) => {
             return new Promise((resolve, reject) => {
                 const img = new window.Image();
                 img.onload = resolve;
@@ -124,7 +98,7 @@ export function WhereWeveGone() {
     };
 
     return (
-        <section className="pb-8 bg-background relative z-20">
+        <section className="pb-8 relative z-20">
             <div className="container mx-auto px-4">
                 <div className="text-center">
                     <h2 className="text-3xl md:text-4xl font-bold text-foreground py-8">

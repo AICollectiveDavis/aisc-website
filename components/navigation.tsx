@@ -19,7 +19,7 @@ export function Navigation() {
     const [isOpen, setIsOpen] = useState(false);
 
     return (
-        <nav className="fixed top-0 left-0 right-0 z-50 glass-card border-b border-border/50">
+        <nav className="fixed top-0 left-0 right-0 z-50 navbar">
             <div className="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex items-center justify-between h-16">
                     {/* Logo */}
@@ -27,15 +27,23 @@ export function Navigation() {
                         <div className="relative h-10 w-8 mr-5 transform transition-all duration-300 group-hover:scale-105">
                             <Image
                                 src={Logo}
-                                alt="AI Student Collective Logo"
+                                alt="AI Collective, UC Davis logo"
                                 fill
                                 priority
                                 style={{
                                     objectFit: 'contain',
                                     objectPosition: 'left',
                                 }}
-                                className="brightness-110 drop-shadow-[0_0_15px_rgba(14,165,233,0.5)] transition-all duration-300 group-hover:drop-shadow-[0_0_18px_rgba(14,165,233,0.7)]"
+                                className="brightness-105 drop-shadow-[0_0_15px_rgba(31,87,214,0.2)] transition-all duration-300 group-hover:drop-shadow-[0_0_18px_rgba(255,107,44,0.28)]"
                             />
+                        </div>
+                        <div className="hidden lg:block">
+                            <div className="text-sm font-semibold tracking-[0.18em] uppercase text-foreground">
+                                AI Collective
+                            </div>
+                            <div className="text-[11px] tracking-[0.24em] uppercase text-muted-foreground">
+                                UC Davis
+                            </div>
                         </div>
                     </Link>
 
@@ -43,15 +51,15 @@ export function Navigation() {
                         <NavigationMenu>
                             <NavigationMenuList>
                                 <NavigationMenuItem>
-                                    <NavigationMenuTrigger className="bg-transparent text-muted-foreground hover:bg-white/20 hover:text-white focus:bg-white/20 focus:text-white">
+                                    <NavigationMenuTrigger className="bg-transparent text-muted-foreground">
                                         Initiatives
                                     </NavigationMenuTrigger>
                                     <NavigationMenuContent>
-                                        <div className="grid gap-3 p-6 w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
+                                        <div className="grid gap-3 p-6 w-[340px] lg:w-[400px] lg:grid-cols-[.75fr_1fr]">
                                             <div className="row-span-3">
                                                 <NavigationMenuLink asChild>
                                                     <Link
-                                                        className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md hover:bg-white/20 hover:text-white focus:bg-white/20 focus:text-white"
+                                                        className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-primary/10 to-white p-6 no-underline outline-none focus:shadow-md"
                                                         href="/initiatives"
                                                     >
                                                         <div className="mb-2 mt-4 text-lg font-medium">
@@ -71,7 +79,7 @@ export function Navigation() {
                                             <NavigationMenuLink asChild>
                                                 <Link
                                                     href="/initiatives/#bp"
-                                                    className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-white/20 hover:text-white focus:bg-white/20 focus:text-white"
+                                                    className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors"
                                                 >
                                                     <div className="text-sm font-medium leading-none">
                                                         Beginner Projects
@@ -88,7 +96,7 @@ export function Navigation() {
                                             <NavigationMenuLink asChild>
                                                 <Link
                                                     href="/initiatives/#swe"
-                                                    className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-white/20 hover:text-white focus:bg-white/20 focus:text-white"
+                                                    className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors"
                                                 >
                                                     <div className="text-sm font-medium leading-none">
                                                         Software Engineering
@@ -105,7 +113,7 @@ export function Navigation() {
                                             <NavigationMenuLink asChild>
                                                 <Link
                                                     href="/initiatives/#research"
-                                                    className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-white/20 hover:text-white focus:bg-white/20 focus:text-white"
+                                                    className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors"
                                                 >
                                                     <div className="text-sm font-medium leading-none">
                                                         R&D
@@ -122,15 +130,15 @@ export function Navigation() {
                                 </NavigationMenuItem>
 
                                 <NavigationMenuItem>
-                                    <NavigationMenuTrigger className="bg-transparent text-muted-foreground hover:bg-white/20 hover:text-white focus:bg-white/20 focus:text-white">
+                                    <NavigationMenuTrigger className="bg-transparent text-muted-foreground">
                                         Teams
                                     </NavigationMenuTrigger>
                                     <NavigationMenuContent>
-                                        <div className="grid gap-3 p-6 w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
+                                        <div className="grid gap-3 p-6 w-[340px] lg:w-[400px] lg:grid-cols-[.75fr_1fr]">
                                             <div className="row-span-4">
                                                 <NavigationMenuLink asChild>
                                                     <Link
-                                                        className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md hover:bg-white/20 hover:text-white focus:bg-white/20 focus:text-white"
+                                                        className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-secondary/10 to-white p-6 no-underline outline-none focus:shadow-md"
                                                         href="/teams"
                                                     >
                                                         <div className="mb-2 mt-4 text-lg font-medium">
@@ -149,7 +157,7 @@ export function Navigation() {
                                             <NavigationMenuLink asChild>
                                                 <Link
                                                     href="/teams/#innovation"
-                                                    className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-white/20 hover:text-white focus:bg-white/20 focus:text-white"
+                                                    className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors"
                                                 >
                                                     <div className="text-sm font-medium leading-none">
                                                         Innovation
@@ -163,7 +171,7 @@ export function Navigation() {
                                             <NavigationMenuLink asChild>
                                                 <Link
                                                     href="/teams/#member-development"
-                                                    className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-white/20 hover:text-white focus:bg-white/20 focus:text-white"
+                                                    className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors"
                                                 >
                                                     <div className="text-sm font-medium leading-none">
                                                         Member Development
@@ -198,17 +206,16 @@ export function Navigation() {
                                     <NavigationMenuLink asChild>
                                         <Link
                                             href="/about"
-                                            className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-transparent px-4 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-white/20 hover:text-white focus:bg-white/20 focus:text-white focus:outline-none disabled:pointer-events-none disabled:opacity-50"
+                                            className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-transparent px-4 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-accent hover:text-foreground focus:bg-accent focus:text-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50"
                                         >
                                             About Us
                                         </Link>
                                     </NavigationMenuLink>
                                 </NavigationMenuItem>
-
                             </NavigationMenuList>
                         </NavigationMenu>
 
-                        <Button className="gradient-btn">
+                        <Button asChild className="gradient-btn">
                             <Link href="/join">Join Us</Link>
                         </Button>
                     </div>
@@ -234,26 +241,24 @@ export function Navigation() {
                         <div className="flex flex-col space-y-4">
                             <Link
                                 href="/initiatives"
-                                className="text-muted-foreground hover:bg-white/20 hover:text-white focus:bg-white/20 focus:text-white transition-colors rounded-md px-2 py-1"
+                                className="text-muted-foreground hover:bg-accent hover:text-foreground focus:bg-accent focus:text-foreground transition-colors rounded-md px-2 py-1"
                             >
                                 Initiatives
                             </Link>
                             <Link
                                 href="/teams"
-                                className="text-muted-foreground hover:bg-white/20 hover:text-white focus:bg-white/20 focus:text-white transition-colors rounded-md px-2 py-1"
+                                className="text-muted-foreground hover:bg-accent hover:text-foreground focus:bg-accent focus:text-foreground transition-colors rounded-md px-2 py-1"
                             >
                                 Teams
                             </Link>
                             <Link
                                 href="/about"
-                                className="text-muted-foreground hover:bg-white/20 hover:text-white focus:bg-white/20 focus:text-white transition-colors rounded-md px-2 py-1"
+                                className="text-muted-foreground hover:bg-accent hover:text-foreground focus:bg-accent focus:text-foreground transition-colors rounded-md px-2 py-1"
                             >
                                 About Us
                             </Link>
                             <Button asChild className="gradient-btn w-fit">
-                                <Link href="/join">
-                                    Join Us
-                                </Link>
+                                <Link href="/join">Join Us</Link>
                             </Button>
                         </div>
                     </div>
