@@ -25,7 +25,7 @@ export function Hero() {
                             <span className="relative inline-block gradient-text">Collective</span>
                         </h1>
                         <p className="text-base text-muted-foreground max-w-md mb-8 leading-relaxed">
-                            Building a future of AI literacy for all through hands-on programs, sharp peers, and
+                            Building a future of AI literacy for all through hands-on programs, engaging events, and
                             industry-facing opportunities.
                         </p>
                         <div className="flex flex-wrap gap-3">

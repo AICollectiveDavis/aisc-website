@@ -1,6 +1,7 @@
 import { BoardPicture } from '@/components/board-picture';
 import { MissionSection } from '@/components/mission';
 import { ValuesSection } from '@/components/values';
+import { AdvisorsSection } from '@/components/advisors';
 import { CTASection } from '@/components/cta';
 
 export default function About() {
@@ -9,6 +10,7 @@ export default function About() {
             <BoardPicture />
             <MissionSection />
             <ValuesSection />
+            <AdvisorsSection />
             <CTASection
                 title="Join Our Community"
                 body="Ready to be part of our story? Connect with fellow AI enthusiasts, learn cutting-edge skills, and build the future together."

@@ -51,7 +51,7 @@ export function Navigation() {
                         <NavigationMenu>
                             <NavigationMenuList>
                                 <NavigationMenuItem>
-                                    <NavigationMenuTrigger className="bg-transparent text-muted-foreground">
+                                    <NavigationMenuTrigger className="bg-transparent text-muted-foreground cursor-pointer">
                                         Initiatives
                                     </NavigationMenuTrigger>
                                     <NavigationMenuContent>
@@ -130,7 +130,7 @@ export function Navigation() {
                                 </NavigationMenuItem>
 
                                 <NavigationMenuItem>
-                                    <NavigationMenuTrigger className="bg-transparent text-muted-foreground">
+                                    <NavigationMenuTrigger className="bg-transparent text-muted-foreground cursor-pointer">
                                         Teams
                                     </NavigationMenuTrigger>
                                     <NavigationMenuContent>

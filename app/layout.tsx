@@ -17,7 +17,7 @@ const manrope = Manrope({
 
 export const metadata: Metadata = {
     title: 'AI Collective, UC Davis',
-    description: 'AI literacy for all.',
+    description: 'Building the human layer for AI.',
 };
 
 export default function RootLayout({

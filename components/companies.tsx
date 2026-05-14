@@ -9,7 +9,7 @@ export function WhereWeveGone() {
     const scrollRef = useRef<HTMLDivElement>(null);
     const [isDragging, setIsDragging] = useState(false);
     const [startX, setStartX] = useState(0);
-    const [scrollLeft, setScrollLeft] = useState(0);
+    const [dragScrollLeft, setDragScrollLeft] = useState(0);
 
     const duplicatedLogos = [...companies, ...companies, ...companies];
 
@@ -55,7 +55,7 @@ export function WhereWeveGone() {
     const handleMouseDown = (e: React.MouseEvent) => {
         setIsDragging(true);
         setStartX(e.pageX - (scrollRef.current?.offsetLeft || 0));
-        setScrollLeft(scrollRef.current?.scrollLeft || 0);
+        setDragScrollLeft(scrollRef.current?.scrollLeft || 0);
     };
 
     const handleMouseMove = (e: React.MouseEvent) => {
@@ -64,7 +64,7 @@ export function WhereWeveGone() {
         const x = e.pageX - (scrollRef.current?.offsetLeft || 0);
         const walk = (x - startX) * 2;
         if (scrollRef.current) {
-            scrollRef.current.scrollLeft = scrollLeft - walk;
+            scrollRef.current.scrollLeft = dragScrollLeft - walk;
         }
     };
 
@@ -77,25 +77,8 @@ export function WhereWeveGone() {
         setIsPaused(false);
     };
 
-    // Touch handlers for mobile
-    const handleTouchStart = (e: React.TouchEvent) => {
-        setIsDragging(true);
-        setStartX(e.touches[0].pageX - (scrollRef.current?.offsetLeft || 0));
-        setScrollLeft(scrollRef.current?.scrollLeft || 0);
-    };
-
-    const handleTouchMove = (e: React.TouchEvent) => {
-        if (!isDragging) return;
-        const x = e.touches[0].pageX - (scrollRef.current?.offsetLeft || 0);
-        const walk = (x - startX) * 2;
-        if (scrollRef.current) {
-            scrollRef.current.scrollLeft = scrollLeft - walk;
-        }
-    };
-
-    const handleTouchEnd = () => {
-        setIsDragging(false);
-    };
+    const handleTouchStart = () => setIsPaused(true);
+    const handleTouchEnd = () => setIsPaused(false);
 
     return (
         <section className="pb-8 relative z-20">
@@ -112,12 +95,12 @@ export function WhereWeveGone() {
                     }`}
                 >
                     {/* Fade edges */}
-                    <div className="absolute left-0 top-0 bottom-0 w-16 bg-gradient-to-r from-background to-transparent pointer-events-none z-10" />
-                    <div className="absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-background to-transparent pointer-events-none z-10" />
+                    <div className="absolute left-0 top-0 bottom-2 w-16 bg-gradient-to-r from-background to-transparent pointer-events-none z-10" />
+                    <div className="absolute right-0 top-0 bottom-2 w-16 bg-gradient-to-l from-background to-transparent pointer-events-none z-10" />
 
                     <div
                         ref={scrollRef}
-                        className="flex overflow-x-auto scrollbar-hide cursor-grab active:cursor-grabbing"
+                        className="flex overflow-x-auto overflow-y-visible scrollbar-hide cursor-grab active:cursor-grabbing pb-2"
                         style={{
                             scrollbarWidth: 'none',
                             msOverflowStyle: 'none',
@@ -128,7 +111,6 @@ export function WhereWeveGone() {
                         onMouseMove={handleMouseMove}
                         onMouseUp={handleMouseUp}
                         onTouchStart={handleTouchStart}
-                        onTouchMove={handleTouchMove}
                         onTouchEnd={handleTouchEnd}
                     >
                         {duplicatedLogos.map((company, index) => (

@@ -23,7 +23,7 @@ export function CTASection({
     const { ref, isVisible } = useScrollReveal();
 
     return (
-        <section className="py-8 relative border-t border-border/70">
+        <section className="py-8 relative">
             <div className="max-w-3xl mx-auto px-4 text-center">
                 <div
                     ref={ref}
