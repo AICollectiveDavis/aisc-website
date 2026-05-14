@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useLayoutEffect, useRef } from 'react';
 import Image from 'next/image';
 import { X, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Dialog as RadixDialog } from 'radix-ui';
@@ -97,16 +97,13 @@ function PhotoLightbox({ startIndex, onClose }: { startIndex: number; onClose: (
                 <RadixDialog.Content
                     className="fixed inset-0 z-50 flex items-center justify-center outline-none"
                 >
-                    {/* Visually hidden title for screen readers */}
                     <DialogTitle className="sr-only">Photo Gallery</DialogTitle>
 
-                    {/* Close */}
                     <DialogClose className="absolute top-5 right-5 text-white/60 hover:text-white transition-colors p-2 rounded-full hover:bg-white/10 z-10">
                         <X className="w-5 h-5" />
                         <span className="sr-only">Close</span>
                     </DialogClose>
 
-                    {/* Prev — fixed to viewport left edge, clear of the image */}
                     <button
                         className="absolute left-3 md:left-6 top-1/2 -translate-y-1/2 text-white/60 hover:text-white transition-colors p-3 rounded-full hover:bg-white/10 z-10"
                         onClick={() => api?.scrollPrev()}
@@ -116,7 +113,6 @@ function PhotoLightbox({ startIndex, onClose }: { startIndex: number; onClose: (
 
                     <PhotoCarousel startIndex={startIndex} setApi={setApi} />
 
-                    {/* Next — fixed to viewport right edge, clear of the image */}
                     <button
                         className="absolute right-3 md:right-6 top-1/2 -translate-y-1/2 text-white/60 hover:text-white transition-colors p-3 rounded-full hover:bg-white/10 z-10"
                         onClick={() => api?.scrollNext()}
@@ -131,29 +127,108 @@ function PhotoLightbox({ startIndex, onClose }: { startIndex: number; onClose: (
 
 // ── Polaroid collage grid ──────────────────────────────────────────────────────
 export function PhotoCollage() {
-    const [openIndex, setOpenIndex] = useState<number | null>(null);
+    const [openIndex, setOpenIndex]     = useState<number | null>(null);
     const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+    const [exploded, setExploded]       = useState(false);
+    const [visible, setVisible]         = useState(false);
+    const [settled, setSettled]         = useState(false);
+    const [offsets, setOffsets]         = useState<{ dx: number; dy: number }[]>([]);
+
+    const containerRef = useRef<HTMLDivElement>(null);
+    const cardRefs     = useRef<(HTMLDivElement | null)[]>([]);
+
+    // Measure each card's center relative to the container center — runs once before paint.
+    useLayoutEffect(() => {
+        const container = containerRef.current;
+        if (!container) return;
+        const cRect   = container.getBoundingClientRect();
+        const centerX = cRect.left + cRect.width  / 2;
+        const centerY = cRect.top  + cRect.height / 2;
+
+        setOffsets(
+            cardRefs.current.map((card) => {
+                if (!card) return { dx: 0, dy: 0 };
+                const r = card.getBoundingClientRect();
+                return {
+                    dx: centerX - (r.left + r.width  / 2),
+                    dy: centerY - (r.top  + r.height / 2),
+                };
+            })
+        );
+    }, []);
+
+    // Trigger explosion when the collage scrolls into view; reset when it leaves.
+    useEffect(() => {
+        const container = containerRef.current;
+        if (!container) return;
+
+        let settledTimer: ReturnType<typeof setTimeout>;
+        let rafId: number;
+
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if (entry.isIntersecting) {
+                    setVisible(true);
+                    rafId = requestAnimationFrame(() => {
+                        setExploded(true);
+                        // switch to hover-friendly transition after all cards finish
+                        settledTimer = setTimeout(() => setSettled(true), 1200);
+                    });
+                } else {
+                    clearTimeout(settledTimer);
+                    cancelAnimationFrame(rafId);
+                    setExploded(false);
+                    setVisible(false);
+                    setSettled(false);
+                }
+            },
+            { threshold: 0.2 }
+        );
+
+        observer.observe(container);
+        return () => {
+            observer.disconnect();
+            clearTimeout(settledTimer);
+            cancelAnimationFrame(rafId);
+        };
+    }, []);
 
     return (
         <>
-            <div className="relative h-[440px] md:h-[560px] w-full">
+            <div ref={containerRef} className="relative h-[440px] md:h-[560px] w-full">
                 {photos.map((photo, i) => {
-                    const l = layout[i];
+                    const l        = layout[i];
                     const isHovered = hoveredIndex === i;
-                    // z-index via React state avoids CSS :hover flicker caused by stacking-order mid-transition
-                    const zClass = isHovered ? 'z-50' : l.z;
-                    const cardScale = isHovered ? photo.scale * 1.05 : photo.scale;
+                    const zClass   = isHovered ? 'z-50' : l.z;
+                    const scale    = isHovered && exploded ? photo.scale * 1.05 : photo.scale;
+                    const offset   = offsets[i] ?? { dx: 0, dy: 0 };
+
+                    const innerTransform = exploded
+                        ? `rotate(${photo.rotate}) scale(${scale})`
+                        : `translate(${offset.dx}px, ${offset.dy}px) rotate(0deg) scale(0.15)`;
+
+                    const innerTransition = settled
+                        ? 'transform 0.3s ease-out'
+                        : exploded
+                            ? `transform 0.75s cubic-bezier(0.34, 1.56, 0.64, 1) ${i * 55}ms`
+                            : 'none';
+
                     return (
                         <div
                             key={photo.src}
-                            className={`absolute ${l.pos} ${l.w} ${zClass} transition-[z-index] duration-0 cursor-pointer`}
+                            ref={el => { cardRefs.current[i] = el; }}
+                            className={`absolute ${l.pos} ${l.w} ${zClass} cursor-pointer`}
                             onMouseEnter={() => setHoveredIndex(i)}
                             onMouseLeave={() => setHoveredIndex(null)}
                             onClick={() => setOpenIndex(i)}
                         >
                             <div
-                                style={{ transform: `rotate(${photo.rotate}) scale(${cardScale})` }}
-                                className={`bg-white p-3 rounded-lg border transition-all duration-300 ${isHovered ? 'shadow-2xl' : 'shadow-xl'}`}
+                                style={{
+                                    transform: innerTransform,
+                                    transition: innerTransition,
+                                    visibility: visible ? 'visible' : 'hidden',
+                                }}
+                                className={`bg-white p-3 rounded-lg border ${isHovered ? 'shadow-2xl' : 'shadow-xl'}`}
                             >
                                 <div className={`relative ${l.aspect} overflow-hidden rounded bg-muted`}>
                                     <Image

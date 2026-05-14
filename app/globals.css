@@ -124,7 +124,7 @@
         inset: -8px;
         background: linear-gradient(90deg, #1f57d6, #56b7ff, #ff6b2c);
         background-size: 200% auto;
-        animation: gradientShift 8s linear infinite;
+        animation: gradientShift 3s linear infinite;
         opacity: 0.85;
         filter: blur(14px) saturate(120%);
         z-index: -1;
@@ -164,7 +164,7 @@
         background-clip: text;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
-        animation: gradientShift 8s ease infinite;
+        animation: gradientShift 3s ease infinite;
         text-shadow: 0 0 20px rgba(31, 87, 214, 0.12);
     }
 
@@ -347,7 +347,10 @@
     0% {
         background-position: 0% 50%;
     }
-    50% {
+    30% {
+        background-position: 100% 50%;
+    }
+    70% {
         background-position: 100% 50%;
     }
     100% {
