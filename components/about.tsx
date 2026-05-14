@@ -11,7 +11,7 @@ export function AboutSection() {
     const statsReveal = useScrollReveal();
 
     return (
-        <section className="py-16 relative">
+        <section className="py-8 relative">
             <div className="max-w-6xl mx-auto px-4">
                 <div
                     ref={aboutReveal.ref}
@@ -26,7 +26,7 @@ export function AboutSection() {
                         </div>
                         <h2 className="text-3xl md:text-4xl font-bold mb-4 tracking-tight text-foreground">
                             Building the
-                            <span className="text-foreground/50"> Future of AI</span>
+                            <span className="text-foreground"> Future of AI</span>
                         </h2>
                         <p className="text-muted-foreground text-sm leading-relaxed mb-5">
                             Since our launch in January 2023, we&apos;ve grown to serve over 3,000 students, offering

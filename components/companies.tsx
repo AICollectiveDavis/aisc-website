@@ -98,7 +98,7 @@ export function WhereWeveGone() {
     };
 
     return (
-        <section className="pb-8 bg-background relative z-20">
+        <section className="pb-8 relative z-20">
             <div className="container mx-auto px-4">
                 <div className="text-center">
                     <h2 className="text-3xl md:text-4xl font-bold text-foreground py-8">

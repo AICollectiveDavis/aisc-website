@@ -6,7 +6,6 @@ import { CTASection } from '@/components/cta';
 export default function About() {
     return (
         <main className="page-shell">
-            <div className="page-grid fixed inset-0 pointer-events-none opacity-70 z-0" />
             <BoardPicture />
             <MissionSection />
             <ValuesSection />

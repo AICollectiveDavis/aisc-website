@@ -1,3 +1,5 @@
+'use client';
+
 import * as React from 'react';
 import * as NavigationMenuPrimitive from '@radix-ui/react-navigation-menu';
 import { cva } from 'class-variance-authority';
@@ -13,8 +15,22 @@ function NavigationMenu({
 }: React.ComponentProps<typeof NavigationMenuPrimitive.Root> & {
     viewport?: boolean;
 }) {
+    const rootRef = React.useRef<HTMLElement>(null);
+
+    React.useLayoutEffect(() => {
+        const el = rootRef.current;
+        if (!el) return;
+        const update = () => {
+            el.style.setProperty('--nav-left', `${el.getBoundingClientRect().left}px`);
+        };
+        update();
+        window.addEventListener('resize', update);
+        return () => window.removeEventListener('resize', update);
+    }, []);
+
     return (
         <NavigationMenuPrimitive.Root
+            ref={rootRef}
             data-slot="navigation-menu"
             data-viewport={viewport}
             className={cn(
@@ -105,14 +121,13 @@ function NavigationMenuViewport({
 }: React.ComponentProps<typeof NavigationMenuPrimitive.Viewport>) {
     return (
         <div
-            className={cn(
-                'absolute top-full left-0 isolate z-50 flex justify-center',
-            )}
+            className="fixed top-16 z-50 pointer-events-none"
+            style={{ left: 'var(--nav-left, 0px)', maxWidth: 'calc(100vw - var(--nav-left, 0px))' }}
         >
             <NavigationMenuPrimitive.Viewport
                 data-slot="navigation-menu-viewport"
                 className={cn(
-                    'origin-top-center bg-popover text-popover-foreground data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-90 relative mt-1.5 h-[var(--radix-navigation-menu-viewport-height)] w-full overflow-hidden rounded-md border shadow md:w-[var(--radix-navigation-menu-viewport-width)]',
+                    'origin-top-center bg-popover text-popover-foreground data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-90 relative mt-1.5 h-[var(--radix-navigation-menu-viewport-height)] w-full overflow-hidden rounded-md border shadow md:w-[var(--radix-navigation-menu-viewport-width)] pointer-events-auto',
                     className,
                 )}
                 {...props}

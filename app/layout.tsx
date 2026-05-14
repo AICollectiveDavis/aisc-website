@@ -29,6 +29,7 @@ export default function RootLayout({
             <body
                 className={`font-sans ${manrope.variable} ${GeistMono.variable} antialiased`}
             >
+                <div className="page-grid fixed inset-0 pointer-events-none opacity-50 z-0" />
                 <Navigation />
                 <Suspense fallback={null}>{children}</Suspense>
                 <Footer />

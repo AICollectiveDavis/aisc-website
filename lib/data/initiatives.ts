@@ -5,6 +5,7 @@ export interface Initiative {
     description: string;
     details: string[];
     image: string;
+    objectPosition?: string;
     accent: 'blue' | 'orange';
 }
 
@@ -42,7 +43,8 @@ export const initiatives: Initiative[] = [
             'Portfolio and resume building',
             'Present at club events',
         ],
-        image: '/pics/bp_wq_showcase.JPG',
+        image: '/pics/DSC_4190.jpg',
+        objectPosition: 'center 25%',
         accent: 'orange',
     },
     {
@@ -59,6 +61,22 @@ export const initiatives: Initiative[] = [
         ],
         image: '/pics/r&d.jpeg',
         accent: 'blue',
+    },
+    {
+        id: 'events',
+        title: 'Events',
+        subtitle: 'Connect & Grow',
+        description:
+            'From industry panels and workshops to socials and symposiums, our events bring the community together and open doors to new opportunities.',
+        details: [
+            'Industry speaker panels',
+            'Hands-on workshops',
+            'Quarterly socials & mixers',
+            'Annual AI Symposium',
+        ],
+        image: '/pics/aisymp.JPG',
+        objectPosition: 'center 40%',
+        accent: 'orange',
     },
 ];
 

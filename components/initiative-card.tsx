@@ -43,10 +43,8 @@ export function InitiativeCard({ initiative, index }: { initiative: Initiative; 
                         alt={initiative.title}
                         fill
                         className="object-cover transition-transform duration-700 group-hover:scale-110"
+                        style={{ objectPosition: initiative.objectPosition ?? 'center' }}
                         sizes="(max-width: 768px) 100vw, 40vw"
-                    />
-                    <div
-                        className={`absolute inset-0 ${isEven ? 'bg-gradient-to-r from-transparent via-transparent to-white' : 'bg-gradient-to-l from-transparent via-transparent to-white'} opacity-60 md:opacity-100`}
                     />
                     <div
                         className={`absolute ${isEven ? 'right-0' : 'left-0'} top-0 bottom-0 w-1 transition-all duration-500 group-hover:w-2`}

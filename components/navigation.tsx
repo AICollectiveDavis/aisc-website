@@ -19,7 +19,7 @@ export function Navigation() {
     const [isOpen, setIsOpen] = useState(false);
 
     return (
-        <nav className="fixed top-0 left-0 right-0 z-50 glass-card border-b border-border/70">
+        <nav className="fixed top-0 left-0 right-0 z-50 navbar">
             <div className="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex items-center justify-between h-16">
                     {/* Logo */}
@@ -55,7 +55,7 @@ export function Navigation() {
                                         Initiatives
                                     </NavigationMenuTrigger>
                                     <NavigationMenuContent>
-                                        <div className="grid gap-3 p-6 w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
+                                        <div className="grid gap-3 p-6 w-[340px] lg:w-[400px] lg:grid-cols-[.75fr_1fr]">
                                             <div className="row-span-3">
                                                 <NavigationMenuLink asChild>
                                                     <Link
@@ -134,7 +134,7 @@ export function Navigation() {
                                         Teams
                                     </NavigationMenuTrigger>
                                     <NavigationMenuContent>
-                                        <div className="grid gap-3 p-6 w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
+                                        <div className="grid gap-3 p-6 w-[340px] lg:w-[400px] lg:grid-cols-[.75fr_1fr]">
                                             <div className="row-span-4">
                                                 <NavigationMenuLink asChild>
                                                     <Link

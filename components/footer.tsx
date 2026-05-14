@@ -24,7 +24,7 @@ function FooterLink({ href, children }: { href: string; children: ReactNode }) {
 export default function Footer() {
     const currentYear = new Date().getFullYear();
     return (
-        <footer className="relative overflow-hidden border-t border-border/70 bg-white/70 py-16 backdrop-blur-sm">
+        <footer className="relative overflow-hidden border-t border-border/70 bg-white/70 py-8 backdrop-blur-sm">
             <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
             <div className="container mx-auto px-4 md:px-6">
                 <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
@@ -34,11 +34,10 @@ export default function Footer() {
                             AI Collective, UC Davis
                         </h3>
                         <p className="text-muted-foreground max-w-lg text-base">
-                            A global network of student organizations dedicated
-                            to making AI literacy accessible for everyone.
-                            Through pre-professional programs, hands-on events,
-                            and industry connections, we&#39;re building a more
-                            informed, diverse, and equitable future in AI.
+                            The AI Collective, UC Davis is part of a global non-profit building the human layer for the AI era.
+                            We unite 200,000+ leaders, builders, and stakeholders across 150+ chapters worldwide to
+                            democratize the frontier, build trust, and coordinate how society navigates the rapid
+                            acceleration of technological progress.
                         </p>
                         {/* Social Links */}
                         <div className="flex space-x-4 mt-6">
@@ -137,7 +136,7 @@ export default function Footer() {
                                     />
                                 </svg>
                                 <span className="text-muted-foreground text-base">
-                                    aistudentcollective@gmail.com
+                                    aicollectivedavis@gmail.com
                                 </span>
                             </div>
                             <div className="flex items-start">

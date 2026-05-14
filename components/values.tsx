@@ -7,7 +7,7 @@ export function ValuesSection() {
     const { ref, isVisible } = useScrollReveal();
 
     return (
-        <section className="py-16 relative z-10">
+        <section className="py-8 relative z-10">
             <div className="max-w-6xl mx-auto px-4">
                 <div
                     ref={ref}

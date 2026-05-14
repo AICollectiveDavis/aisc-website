@@ -9,7 +9,7 @@ export function InitiativesPreview() {
     const { ref, isVisible } = useScrollReveal();
 
     return (
-        <section className="py-16 relative">
+        <section className="py-8 relative">
             <div className="max-w-6xl mx-auto px-4">
                 <div
                     ref={ref}
