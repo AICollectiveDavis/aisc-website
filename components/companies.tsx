@@ -116,7 +116,7 @@ export function WhereWeveGone() {
                         {duplicatedLogos.map((company, index) => (
                             <div
                                 key={index}
-                                className="flex items-center justify-center p-4 bg-card rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300 min-w-[140px] h-16 mx-3 flex-shrink-0 select-none"
+                                className="flex items-center justify-center p-4 bg-card rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300 min-w-[140px] h-16 mx-3 flex-shrink-0 select-none overflow-hidden"
                             >
                                 <div
                                     className="logo-glow w-28 h-12 bg-white pointer-events-none"
