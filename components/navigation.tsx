@@ -27,7 +27,7 @@ export function Navigation() {
                         <div className="relative h-10 w-8 mr-5 transform transition-all duration-300 group-hover:scale-105">
                             <Image
                                 src={Logo}
-                                alt="AI Collective, UC Davis logo"
+                                alt="AI Collective @ UC Davis logo"
                                 fill
                                 priority
                                 style={{
@@ -42,7 +42,7 @@ export function Navigation() {
                                 AI Collective
                             </div>
                             <div className="text-[11px] tracking-[0.24em] uppercase text-muted-foreground">
-                                UC Davis
+                                At UC Davis
                             </div>
                         </div>
                     </Link>
@@ -212,6 +212,17 @@ export function Navigation() {
                                         </Link>
                                     </NavigationMenuLink>
                                 </NavigationMenuItem>
+
+                                <NavigationMenuItem>
+                                    <NavigationMenuLink asChild>
+                                        <Link
+                                            href="/sponsor"
+                                            className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-transparent px-4 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-accent hover:text-foreground focus:bg-accent focus:text-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50"
+                                        >
+                                            Sponsor Us
+                                        </Link>
+                                    </NavigationMenuLink>
+                                </NavigationMenuItem>
                             </NavigationMenuList>
                         </NavigationMenu>
 
@@ -256,6 +267,12 @@ export function Navigation() {
                                 className="text-muted-foreground hover:bg-accent hover:text-foreground focus:bg-accent focus:text-foreground transition-colors rounded-md px-2 py-1"
                             >
                                 About Us
+                            </Link>
+                            <Link
+                                href="/sponsor"
+                                className="text-muted-foreground hover:bg-accent hover:text-foreground focus:bg-accent focus:text-foreground transition-colors rounded-md px-2 py-1"
+                            >
+                                Sponsor Us
                             </Link>
                             <Button asChild className="gradient-btn w-fit">
                                 <Link href="/join">Join Us</Link>

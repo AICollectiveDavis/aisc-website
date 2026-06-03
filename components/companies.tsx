@@ -118,18 +118,11 @@ export function WhereWeveGone() {
                                 key={index}
                                 className="flex items-center justify-center p-4 bg-card rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300 min-w-[140px] h-16 mx-3 flex-shrink-0 select-none overflow-hidden"
                             >
-                                <div
-                                    className="logo-glow w-28 h-12 bg-white pointer-events-none"
-                                    style={{
-                                        maskImage: `url(${company.logo})`,
-                                        WebkitMaskImage: `url(${company.logo})`,
-                                        maskRepeat: 'no-repeat',
-                                        WebkitMaskRepeat: 'no-repeat',
-                                        maskPosition: 'center',
-                                        WebkitMaskPosition: 'center',
-                                        maskSize: 'contain',
-                                        WebkitMaskSize: 'contain',
-                                    }}
+                                <img
+                                    src={company.logo}
+                                    alt={company.name}
+                                    className="w-28 h-12 object-contain pointer-events-none"
+                                    draggable={false}
                                 />
                             </div>
                         ))}

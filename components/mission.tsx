@@ -25,7 +25,7 @@ export function MissionSection() {
                         </h2>
                         <div className="space-y-4 text-muted-foreground text-sm leading-relaxed">
                             <p>
-                                AI Collective, UC Davis exists to foster a community of students passionate about
+                                AI Collective @ UC Davis exists to foster a community of students passionate about
                                 artificial intelligence and its applications. We aim to bridge the gap between
                                 theoretical classroom learning and practical AI implementation.
                             </p>

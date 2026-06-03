@@ -16,7 +16,7 @@ const manrope = Manrope({
 });
 
 export const metadata: Metadata = {
-    title: 'AI Collective, UC Davis',
+    title: 'AI Collective @ UC Davis',
     description: 'Building the human layer for AI.',
 };
 

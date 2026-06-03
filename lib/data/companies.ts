@@ -30,7 +30,7 @@ export const companies: Company[] = [
     { name: 'CVS', logo: '/logos/cvs.svg' },
     { name: 'Hewlett-Packard Enterprise', logo: '/logos/hpe.svg' },
     { name: 'Marvell Technology', logo: '/logos/marvell.svg' },
-    { name: 'Keysight Technologies', logo: '/logos/keysight.svg' },
+    // { name: 'Keysight Technologies', logo: '/logos/keysight.svg' },
     { name: 'Kaiser Permanente', logo: '/logos/kp.svg' },
     { name: 'Blackhawk Network', logo: '/logos/bhn.svg' },
     { name: 'Freewheel', logo: '/logos/freewheel.svg' },

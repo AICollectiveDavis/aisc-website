@@ -31,10 +31,10 @@ export default function Footer() {
                     {/* About */}
                     <div className="md:col-span-5">
                         <h3 className="text-foreground text-lg font-semibold mb-4">
-                            AI Collective, UC Davis
+                            AI Collective @ UC Davis
                         </h3>
                         <p className="text-muted-foreground max-w-lg text-base">
-                            The AI Collective, UC Davis is part of a global non-profit building the human layer for the AI era.
+                            AI Collective @ UC Davis is part of a global non-profit building the human layer for the AI era.
                             We unite 200,000+ leaders, builders, and stakeholders across 150+ chapters worldwide to
                             democratize the frontier, build trust, and coordinate how society navigates the rapid
                             acceleration of technological progress.
@@ -193,7 +193,7 @@ export default function Footer() {
                 {/* Copyright */}
                 <div className="border-t border-border/80 mt-12 pt-6 text-center md:flex md:justify-between md:items-center">
                     <p className="text-muted-foreground text-sm">
-                        © {currentYear} AI Collective, UC Davis. All rights
+                        © {currentYear} AI Collective @ UC Davis. All rights
                         reserved.
                     </p>
                     <p className="text-muted-foreground text-sm mt-2 md:mt-0">
